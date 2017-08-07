@@ -12,12 +12,13 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+app.use(express.static('public'));
 
 
 const postsController = require('./controllers/posts.js');
 app.use('/posts', postsController);
 const membersController = require('./controllers/members.js');
-app.use('/members', membersController); 
+app.use('/members', membersController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 

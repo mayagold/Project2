@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/users');
+const User = require('../models/users.js');
+const Member = require('../models/members.js');
 const bcrypt = require('bcrypt');
 
 
@@ -20,7 +21,9 @@ router.post('/register', (req,res,next)=>{
     console.log(user);
     req.session.user = user.username;
     req.session.logged = true;
-    res.redirect('/posts')
+  });
+  Member.create(req.body, (err, createdMember)=>{
+      res.redirect('/posts')
   })
 });
 
