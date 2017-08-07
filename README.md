@@ -20,5 +20,5 @@ Upvotes
 Hashtags
 Post categories
 Google maps drop pin
-Sessions login - must log in to access forum at all - pswd verification
-search functionality 
+Sessions login - must log in to access forum at all - pswd verification - message for wrong pwd, nonexistent username
+search functionality

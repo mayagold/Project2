@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 
 router.get('/register', (req,res,next)=>{
   res.render('users/register.ejs', {})
-})
+});
 
 router.post('/register', (req,res,next)=>{
   const password = req.body.password;
@@ -22,14 +22,14 @@ router.post('/register', (req,res,next)=>{
     req.session.logged = true;
     res.redirect('/posts')
   })
-})
+});
 
 
 // session login
 
 router.get('/login', (req,res,next)=>{
   res.render('users/login.ejs', {})
-})
+});
 
 router.post('/login', (req,res,next)=>{
   User.findOne({username: req.body.username}, (err,user)=>{
@@ -46,7 +46,7 @@ router.post('/login', (req,res,next)=>{
     } else {
       res.redirect('/sessions/login')
     }
-  });
+  })
 });
 
 
@@ -60,6 +60,7 @@ router.get('/logout', (req,res)=>{
       res.redirect('/sessions/login')
     }
   })
-})
+});
+
 
 module.exports=router;
