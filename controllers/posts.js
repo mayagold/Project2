@@ -34,7 +34,6 @@ router.post('/', (req,res)=>{
   })
 })
 
-
 // render show page
 router.get('/:id', (req,res)=>{
   Post.findById(req.params.id, (err,foundPost)=>{
@@ -45,14 +44,22 @@ router.get('/:id', (req,res)=>{
       })
     })
   })
-})
-
+});
 
 // render edit page
 router.get('/:id/edit', (req,res)=>{
-  res.render('posts/edit.ejs')
+  Post.findById(req.params.id, (err,foundPost)=>{
+    Member.find({}, (err,allMembers)=>{
+      Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
+        res.render('posts/edit.ejs', {
+          post: foundPost,
+          members: allMembers,
+          postAuthor: foundPostAuthor
+        })
+      })
+    })
+  })
 })
-
 
 // delete route for posts
 router.delete('/:id', (req,res)=>{
@@ -66,6 +73,20 @@ router.delete('/:id', (req,res)=>{
   })
 })
 
+// update route for posts
+router.put('/:id', (req,res)=>{
+  Post.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,updatedPost)=>{
+    Member.findOne({'posts._id':req.params.id}, (err,postAuthor)=>{
+      postAuthor.posts.id(req.params.id).remove();
+      postAuthor.posts.push(updatedPost);
+      postAuthor.save((err,data)=>{
+        res.redirect('/posts/'+req.params.id), {
+          post: updatedPost
+        }
+      })
+    })
+  })
+})
 
 
 

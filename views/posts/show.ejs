@@ -14,8 +14,9 @@
       <p> <%= post.body %> </p>
       <img src="<%= post.img %>" alt="<%= post.title %> "/>
 
-
-
+      <section>
+        <a href="/posts/<%=post._id%>/edit">Edit Post</a>
+      </section>
       <section>
         <form class="form-style" action="/posts/<%=post._id%>?_method=DELETE" method="post">
           <input type="submit" name="" value="Delete Post">
