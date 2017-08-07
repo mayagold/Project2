@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+        <% include ../partials/header.ejs %>
+    </header>
+    <h1> <%=members.username%> </h1>
+    show page
+    <h1>Activity</h1>
+    <ul>
+      <% for (let i=0; i<members.posts.length; i++) { %>
+        <li>
+          <a href="/posts/<%=members.posts[i]._id%>">
+            <%=members.posts[i].title%>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

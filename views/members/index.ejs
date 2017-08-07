@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+        <% include ../partials/header.ejs %>
+    </header>
+    <main>
+      <% for (i=0; i<members.length; i++) { %>
+        <li>
+          <a href="/members/<%=members[i]._id%>"> <%=members[i].username%> </a>
+        </li>
+      <% } %>
+    </main>
+  </body>
+</html>

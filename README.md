@@ -9,3 +9,16 @@ A members-only forum for backcountry skiers and snowboarders to upload, share, a
 
 
 *********
+
+
+
+Stretch Features:
+
+CSS Partials
+Design interactivity
+Upvotes
+Hashtags
+Post categories
+Google maps drop pin
+Sessions login - must log in to access forum at all - pswd verification
+search functionality 

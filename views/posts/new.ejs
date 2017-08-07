@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+        <% include ../partials/header.ejs %>
+    </header>
+    <main>
+      <form class="form-style" action="/posts" method="POST">
+        Credit: <select class="" name="memberId">
+            <% for(let i=0; i<members.length; i++){ %>
+              <option value="<%=members[i]._id%>">
+                <%=members[i].username%>
+              </option>
+            <% } %>
+        </select><br/>
+        Title: <input type="text" name="title" value=""/><br/>
+        Content: <input type="text" name="body" value=""/><br/>
+        Image/Video Link: <input type="text" name="img" value=""/><br/>
+        <input type="submit" value="Send It">
+      </form>
+    </main>
+  </body>
+</html>
