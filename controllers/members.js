@@ -2,6 +2,7 @@ const express = require('express');
 const Member = require('../models/members.js');
 const Post = require('../models/posts.js');
 const router = express.Router();
+const User = require('../models/users.js');
 
 // get index page of all members
 router.get('/', (req,res)=>{
@@ -50,6 +51,23 @@ router.put('/:id', (req,res)=>{
 })
 
 // members delete route
+router.delete('/:id', (req,res)=>{
+  Member.findByIdAndRemove(req.params.id, (err,foundMember)=>{
+    const postIds = [];
+    for (let i=0; i<foundMember.posts.length; i++){
+      postIds.push(foundMember.posts[i]._id);
+    } Post.remove(
+      {
+        _id: {
+          $in: postIds
+        }
+      }, (err,data)=>{
+        res.redirect('/posts')
+      }
+    )
+  })
+})
+
 
 
 module.exports = router;
