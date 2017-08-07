@@ -13,6 +13,14 @@
       <h6>by (find author by memberId) </h6>
       <p> <%= post.body %> </p>
       <img src="<%= post.img %>" alt="<%= post.title %> "/>
+
+
+
+      <section>
+        <form class="form-style" action="/posts/<%=post._id%>?_method=DELETE" method="post">
+          <input type="submit" name="" value="Delete Post">
+        </form>
+      </section>
     </main>
   </body>
 </html>

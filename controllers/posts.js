@@ -54,4 +54,20 @@ router.get('/:id/edit', (req,res)=>{
 })
 
 
+// delete route for posts
+router.delete('/:id', (req,res)=>{
+  Post.findByIdAndRemove(req.params.id, (err,foundPost)=>{
+    Member.findOne( {'posts._id':req.params.id}, (err,foundMember)=>{
+      foundMember.posts.id(req.params.id).remove();
+      foundMember.save((err,data)=>{
+        res.redirect('/posts')
+      })
+    })
+  })
+})
+
+
+
+
+
 module.exports = router;

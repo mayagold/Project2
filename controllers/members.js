@@ -33,4 +33,14 @@ router.get('/:id', (req,res)=>{
   })
 })
 
+// members edit page
+router.get('/:id/edit', (req,res)=>{
+  res.render('members/edit.ejs', {
+
+  })
+})
+
+// members delete route
+
+
 module.exports = router;
