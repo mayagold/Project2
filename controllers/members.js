@@ -50,9 +50,15 @@ router.put('/:id', (req,res)=>{
   })
 })
 
+
+
+
 // members delete route
 router.delete('/:id', (req,res)=>{
-  Member.findByIdAndRemove(req.params.id, (err,foundMember)=>{
+  // User.findByIdAndRemove(req.params.id, (err,foundUser)=>{
+  //   console.log(foundUser);
+  // });
+  Member.findOneAndRemove(req.params.id, (err,foundMember)=>{
     const postIds = [];
     for (let i=0; i<foundMember.posts.length; i++){
       postIds.push(foundMember.posts[i]._id);
