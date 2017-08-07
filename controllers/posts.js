@@ -58,7 +58,7 @@ router.get('/:id/edit', (req,res)=>{
         })
       })
     })
-  })
+  }) 
 })
 
 // delete route for posts
@@ -87,8 +87,5 @@ router.put('/:id', (req,res)=>{
     })
   })
 })
-
-
-
 
 module.exports = router;

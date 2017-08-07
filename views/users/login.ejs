@@ -6,12 +6,15 @@
   </head>
   <body>
     this is the user login page
+    <header>
+    <% include ../partials/header.ejs %> 
+    </header>
     <br>
     <br>
     <br>
     <form action="/sessions/login" method="POST">
-       <input type="text" name="username" value="">
-       <input type="password" name="password" value="">
+       Username: <input type="text" name="username" value=""><br/>
+       Password: <input type="password" name="password" value=""><br/>
        <button>Login</button>
     </form>
   </body>

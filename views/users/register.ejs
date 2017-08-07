@@ -5,6 +5,17 @@
     <title></title>
   </head>
   <body>
-    this is the user register page 
+    this is the user register page
+    <header>
+            <% include ../partials/header.ejs %>
+    </header>
+      <br>
+      <br>
+      <br>
+      <form action="/sessions/register" method="POST">
+         Create Username <input type="text" name="username" value=""><br/>
+         Create Password <input type="password" name="password" value=""><br/>
+         <button>Register</button>
+      </form>
   </body>
 </html>
