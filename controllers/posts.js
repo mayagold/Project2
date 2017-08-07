@@ -47,6 +47,7 @@ router.get('/:id', (req,res)=>{
   })
 })
 
+
 // render edit page
 router.get('/:id/edit', (req,res)=>{
   res.render('posts/edit.ejs')
