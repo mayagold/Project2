@@ -35,8 +35,17 @@ router.get('/:id', (req,res)=>{
 
 // members edit page
 router.get('/:id/edit', (req,res)=>{
-  res.render('members/edit.ejs', {
+  Member.findById(req.params.id, (err,foundMember)=>{
+    res.render('members/edit.ejs', {
+      member: foundMember
+    })
+  })
+})
 
+// members update route
+router.put('/:id', (req,res)=>{
+  Member.findByIdAndUpdate(req.params.id, req.body, ()=>{
+    res.redirect('/members')
   })
 })
 

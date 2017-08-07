@@ -9,6 +9,13 @@
     <header>
         <% include ../partials/header.ejs %>
     </header>
-    members edit page: edit profile
+    <main>
+      <h2>Edit Profile</h2>
+      <h6>Changing your display name will only change the name that appears attached to your posts. It will not change your login username.</h6>
+        <form class="" action="/members/<%=member._id%>?_method=PUT" method="post">
+          New Display Name: <input type="text" name="username" value="<%=member.username%>"/><br/>
+          <input type="submit" value="Update Profile">
+        </form>
+    </main>
   </body>
 </html>
