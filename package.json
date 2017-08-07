@@ -4,7 +4,8 @@
   "description": "First Full Stack Application - GA WDIr-Gizmo",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/mayagold/Project2/issues"
   },
-  "homepage": "https://github.com/mayagold/Project2#readme"
+  "homepage": "https://github.com/mayagold/Project2#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-session": "^1.15.5",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.5"
+  }
 }
