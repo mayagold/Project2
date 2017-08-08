@@ -6,24 +6,35 @@
           <% include ../partials/head.ejs %>
   </head>
   <body>
-    <header>
-      <% include ../partials/header.ejs %>
-      Logged in as <a href="/members/show/<%=memberId%>"><%= currentUser %></a> || <a href="/members/show/<%=memberId%>/edit">Edit Profile</a>
-    </header>
+    <div class="header">
+      <header>
+        <% include ../partials/header.ejs %>
+        <div class="user-info">
+          Logged in as <a href="/members/show/<%=memberId%>"><%= currentUser %></a> || <a href="/members/show/<%=memberId%>/edit">Edit Profile</a>
+        </div>
+      </header>
+    </div>
     <main>
-      <h2>Top Posts</h2>
-      <ul>
-          <% for (i=0; i<posts.length; i++) { %>
-              <li>
-                <a href="/posts/show/<%=posts[i]._id%>"> <%=posts[i].title%> </a> <br/>
-                <img src="<%=posts[i].img%>" alt=""><br/>
-                <%=posts[i].body%>
-              </li>
-          <% } %>
-      </ul>
+      <h2 class="post-index-head">Top Posts</h2>
+      <div class="index-posts">
+        <ul>
+            <% for (i=0; i<posts.length; i++) { %>
+                <li class="post">
+                  <div class="post-head">
+                    <img src="<%=posts[i].img%>" alt=""><a href="/posts/show/<%=posts[i]._id%>"><h3 class="post-title"><%=posts[i].title%></h3> </a> <br/>
+                  </div>
+                  <h6>by <strong> <%=posts[i].memberId%> </strong> </h6>
+                  <br/>
+                  <p><%=posts[i].body%></p>
+                  <a href="#">Comments (#)</a>
+                  <p>Like</p>
+                </li>
+            <% } %>
+        </ul>
+      </div>
     </main>
     <footer>
-      Footer
+        <% include ../partials/footer.ejs %>
     </footer>
   </body>
 </html>

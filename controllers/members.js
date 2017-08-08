@@ -168,8 +168,10 @@ router.get('/seed/newdata/viaseedfile', (req,res)=>{
     } else {
       for (i=0; i<dataSeeds.length; i++) {
         const post = dataSeeds[i].posts;
+        post[0].memberId = dataSeeds[i].username;
+        console.log(post[0]);
         Post.create(post, (err,createdPost)=>{
-          console.log(createdPost);
+            console.log(createdPost);
         })
       }
     }
