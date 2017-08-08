@@ -1,3 +1,5 @@
+// Seed Data Array
+//*******************************************************
 module.exports = [
   {
     username: "SkiBum",

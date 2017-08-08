@@ -1,11 +1,34 @@
+//*******************************************************
+//*******************************************************
+//
+//    Posts Controller
+//
+//*******************************************************
+//    Dependencies, models
+//*******************************************************
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/posts.js');
 const Member = require('../models/members.js');
 const User = require('../models/users.js');
 
+//*******************************************************
+//    Restful Routes
+//*******************************************************
+//*******************************************************
+// Index  : GET    '/posts'               1/7
+// Show   : GET    '/posts/show/:id'      2/7
+// New    : GET    '/posts/new'           3/7
+// Create : POST   '/posts'               4/7
+// Edit   : GET    '/posts/show/:id/edit' 5/7
+// Update : PUT    '/posts/show/:id'      6/7
+// Delete : DELETE '/posts/show/:id'      7/7
+//*******************************************************
 
-// render posts index page
+
+//*******************************************************
+// Index  : GET    '/posts'               1/7
+//*******************************************************
 router.get('/', (req,res)=>{
   Post.find({}, (err,foundPosts)=>{
     res.render('posts/index.ejs', {
@@ -14,7 +37,9 @@ router.get('/', (req,res)=>{
   })
 })
 
-// render new post page - automatically finds the current user and assigns them authorship of the post
+//*******************************************************
+// New    : GET    '/posts/new'           3/7
+//*******************************************************
 router.get('/new', (req,res)=>{
   Member.find({}, (err,allMembers)=>{
     User.find(req.session.user, (err,foundUser) =>{
@@ -27,8 +52,11 @@ router.get('/new', (req,res)=>{
   })
 })
 
+// assigns current user as author of post
 
-// post a new post - adds it to current user's posts array
+//*******************************************************
+// Create : POST   '/posts'               4/7
+//*******************************************************
 router.post('/', (req,res)=>{
   Member.findOne({'username':req.body.memberId}, (err,foundMember)=>{
     console.log(foundMember);
@@ -41,8 +69,11 @@ router.post('/', (req,res)=>{
   })
 })
 
+// adds new post to current user's posts array
 
-// render show page
+//*******************************************************
+// Show   : GET    '/posts/show/:id'      2/7
+//*******************************************************
 router.get('/show/:id', (req,res)=>{
   Post.findById(req.params.id, (err,foundPost)=>{
     console.log(foundPost);
@@ -50,15 +81,12 @@ router.get('/show/:id', (req,res)=>{
       post: foundPost,
 
     })
-    // Member.findOne({'posts._id':req.params.id}, (err,foundMember)=>{
-    //   console.log(foundMember);
-    //
-    // })
   })
 });
 
-
-// render edit page
+//*******************************************************
+// Edit   : GET    '/posts/show/:id/edit' 5/7
+//*******************************************************
 router.get('/show/:id/edit', (req,res)=>{
   Post.findById(req.params.id, (err,foundPost)=>{
     Member.find({}, (err,allMembers)=>{
@@ -73,8 +101,9 @@ router.get('/show/:id/edit', (req,res)=>{
   })
 })
 
-
-// delete route for posts
+//*******************************************************
+// Delete : DELETE '/posts/show/:id'      7/7
+//*******************************************************
 router.delete('/show/:id', (req,res)=>{
   Post.findByIdAndRemove(req.params.id, (err,foundPost)=>{
     Member.findOne( {'posts._id':req.params.id}, (err,foundMember)=>{
@@ -86,8 +115,9 @@ router.delete('/show/:id', (req,res)=>{
   })
 })
 
-
-// update route for posts
+//*******************************************************
+// Update : PUT    '/posts/show/:id'      6/7
+//*******************************************************
 router.put('/show/:id', (req,res)=>{
   Post.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,updatedPost)=>{
     Member.findOne({'posts._id':req.params.id}, (err,postAuthor)=>{
@@ -102,5 +132,7 @@ router.put('/show/:id', (req,res)=>{
   })
 })
 
-
+//*******************************************************
+// module exports - access this file in server.js
+//*******************************************************
 module.exports = router;

@@ -1,5 +1,9 @@
+// Dependencies
+//*******************************************************
 const mongoose = require('mongoose');
 
+// Schema
+//*******************************************************
 const postSchema = new mongoose.Schema({
   title: {type: String, required: true},
   body: {type: String},
@@ -7,6 +11,10 @@ const postSchema = new mongoose.Schema({
   memberId: {type: String},
 })
 
+// model
+//*******************************************************
 const Post = mongoose.model('Post', postSchema);
 
+// module exports
+//*******************************************************
 module.exports = Post;

@@ -1,30 +1,33 @@
 //*******************************************************
+//*******************************************************
+//
+//    Members Controller
+//
+//*******************************************************
 //    Dependencies, models
 //*******************************************************
-
 const express = require('express');
 const Member = require('../models/members.js');
 const Post = require('../models/posts.js');
 const router = express.Router();
 const User = require('../models/users.js');
 
-
 //*******************************************************
 //    Restful Routes
 //*******************************************************
 //*******************************************************
-// Index  : GET    '/products'          1/7
-// Show   : GET    '/products/:id'      2/7
-// New    : GET    '/prodcuts/new'      3/7
-// Create : POST   '/products'          4/7
-// Edit   : GET    '/products/:id/edit' 5/7
-// Update : PUT    '/products/:id'      6/7
-// Delete : DELETE '/products/:id'      7/7
+// Index  : GET    '/members'               1/7
+// Show   : GET    '/members/show/:id'      2/7
+// New    : GET    '/members/new'           3/7
+// Create : POST   '/members'               4/7
+// Edit   : GET    '/members/show/:id/edit' 5/7
+// Update : PUT    '/members/show/:id'      6/7
+// Delete : DELETE '/members/show/:id'      7/7
 //*******************************************************
 
-
-
-// get index page of all members
+//*******************************************************
+// Index  : GET    '/members'               1/7
+//*******************************************************
 router.get('/', (req,res)=>{
   Member.find({}, (err,foundMembers)=>{
     res.render('members/index.ejs', {
@@ -33,28 +36,33 @@ router.get('/', (req,res)=>{
   })
 })
 
-// get new member page
+//*******************************************************
+// New    : GET    '/members/new'           3/7
+//*******************************************************
 router.get('/new', (req,res)=>{
   res.render('members/new.ejs')
 })
 
-// create new member
-router.post('/', (req,res)=>{
-  Member.create(req.body, (err,createdMember)=>{
-    res.redirect('/members');
-  })
-})
+//*******************************************************
+// Create : POST   '/members'               4/7
+//*******************************************************
+// New member is created in controllers/sessions.js when new user is created
 
-// members show page
+//*******************************************************
+// Show   : GET    '/members/show/:id'      2/7
+//*******************************************************
 router.get('/show/:id', (req,res)=>{
   Member.findById(req.params.id, (err,foundMember)=>{
+    console.log(foundMember);
     res.render('members/show.ejs', {
       members: foundMember
     })
   })
 })
 
-// members edit page
+//*******************************************************
+// Edit   : GET    '/members/show/:id/edit' 5/7
+//*******************************************************
 router.get('/show/:id/edit', (req,res)=>{
   Member.findById(req.params.id, (err,foundMember)=>{
     res.render('members/edit.ejs', {
@@ -63,15 +71,18 @@ router.get('/show/:id/edit', (req,res)=>{
   })
 })
 
-// members update route
+//*******************************************************
+// Update : PUT    '/members/show/:id'      6/7
+//*******************************************************
 router.put('/show/:id', (req,res)=>{
   Member.findByIdAndUpdate(req.params.id, req.body, ()=>{
     res.redirect('/members')
   })
 })
 
-
-// members delete route
+//*******************************************************
+// Delete : DELETE '/members/show/:id'      7/7
+//*******************************************************
 router.delete('/show/:id', (req,res)=>{
   // User.findByIdAndRemove(req.params.id, (err,foundUser)=>{
   //   console.log(foundUser);
@@ -92,13 +103,9 @@ router.delete('/show/:id', (req,res)=>{
   })
 })
 
-
-//*******************************************************
 //*******************************************************
 // seed route: visit once to populate database
 //*******************************************************
-//*******************************************************
-
 router.get('/seed/data', (req,res)=>{
   const newMembers = [
     {
@@ -153,21 +160,28 @@ router.get('/seed/data', (req,res)=>{
   })
 })
 
+//*******************************************************
+// Alternate seed route: via seed file
+//*******************************************************
+const dataSeeds = require('../models/seed.js');
+router.get('/seed/newdata/viaseedfile', (req,res)=>{
+  Member.insertMany(dataSeeds, (err,members)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      for (i=0; i<dataSeeds.length; i++) {
+        const post = dataSeeds[i].posts;
+        Post.create(post, (err,createdPost)=>{
+          console.log(createdPost);
+        })
+      }
+    }
+    res.redirect('/posts');
+  })
+})
 
 //*******************************************************
-//*******************************************************
-// Alternate route: Via seed file
-//*******************************************************
-//*******************************************************
-
-
-
-
-
-//*******************************************************
-//*******************************************************
-// Drop database
-//*******************************************************
+// Drop database - cannot undo
 //*******************************************************
 router.get('/dropdatabase/cannotundo', (req,res)=>{
   Member.collection.drop();
@@ -177,6 +191,6 @@ router.get('/dropdatabase/cannotundo', (req,res)=>{
 })
 
 //*******************************************************
-// router export
-
+// module exports - access this file in server.js
+//*******************************************************
 module.exports = router;
