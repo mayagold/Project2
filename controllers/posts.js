@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/posts.js');
 const Member = require('../models/members.js');
+const User = require('../models/users.js');
 
 
 // render posts index page
@@ -13,18 +14,24 @@ router.get('/', (req,res)=>{
   })
 })
 
-// render new post page
+// render new post page - automatically finds the current user and assigns them authorship of the post
 router.get('/new', (req,res)=>{
   Member.find({}, (err,allMembers)=>{
+    User.find(req.session.user, (err,foundUser) =>{
+      console.log(foundUser[0].username);
     res.render('posts/new.ejs', {
-      members: allMembers
+      members: allMembers,
+      currentUser: foundUser[0].username,
+    })
     })
   })
 })
 
-// post a new post
+
+// post a new post - adds it to current user's posts array
 router.post('/', (req,res)=>{
-  Member.findById(req.body.memberId, (err,foundMember)=>{
+  Member.findOne({'username':req.body.memberId}, (err,foundMember)=>{
+    console.log(foundMember);
     Post.create(req.body, (err,createdPost)=>{
       foundMember.posts.push(createdPost);
       foundMember.save((err,data)=>{
@@ -34,20 +41,25 @@ router.post('/', (req,res)=>{
   })
 })
 
+
 // render show page
-router.get('/:id', (req,res)=>{
+router.get('/show/:id', (req,res)=>{
   Post.findById(req.params.id, (err,foundPost)=>{
-    Member.findOne({'posts._id':req.params.id}, (err,foundMember)=>{
-      res.render('posts/show.ejs', {
-        member: foundMember,
-        post: foundPost
-      })
+    console.log(foundPost);
+    res.render('posts/show.ejs', {
+      post: foundPost,
+
     })
+    // Member.findOne({'posts._id':req.params.id}, (err,foundMember)=>{
+    //   console.log(foundMember);
+    //
+    // })
   })
 });
 
+
 // render edit page
-router.get('/:id/edit', (req,res)=>{
+router.get('/show/:id/edit', (req,res)=>{
   Post.findById(req.params.id, (err,foundPost)=>{
     Member.find({}, (err,allMembers)=>{
       Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
@@ -58,11 +70,12 @@ router.get('/:id/edit', (req,res)=>{
         })
       })
     })
-  }) 
+  })
 })
 
+
 // delete route for posts
-router.delete('/:id', (req,res)=>{
+router.delete('/show/:id', (req,res)=>{
   Post.findByIdAndRemove(req.params.id, (err,foundPost)=>{
     Member.findOne( {'posts._id':req.params.id}, (err,foundMember)=>{
       foundMember.posts.id(req.params.id).remove();
@@ -73,19 +86,21 @@ router.delete('/:id', (req,res)=>{
   })
 })
 
+
 // update route for posts
-router.put('/:id', (req,res)=>{
+router.put('/show/:id', (req,res)=>{
   Post.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,updatedPost)=>{
     Member.findOne({'posts._id':req.params.id}, (err,postAuthor)=>{
       postAuthor.posts.id(req.params.id).remove();
       postAuthor.posts.push(updatedPost);
       postAuthor.save((err,data)=>{
-        res.redirect('/posts/'+req.params.id), {
+        res.redirect('/posts/show/'+req.params.id), {
           post: updatedPost
         }
       })
     })
   })
 })
+
 
 module.exports = router;

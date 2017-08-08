@@ -14,7 +14,7 @@
       <ul>
           <% for (i=0; i<posts.length; i++) { %>
               <li>
-                <a href="/posts/<%=posts[i]._id%>"> <%=posts[i].title%> </a> <br/>
+                <a href="/posts/show/<%=posts[i]._id%>"> <%=posts[i].title%> </a> <br/>
                 <img src="<%=posts[i].img%>" alt=""><br/>
                 <%=posts[i].body%>
               </li>

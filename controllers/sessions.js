@@ -12,6 +12,7 @@ router.get('/register', (req,res,next)=>{
 });
 
 router.post('/register', (req,res,next)=>{
+  const posts = [];
   const password = req.body.password;
   const passwordHash = bcrypt.hashSync(password,bcrypt.genSaltSync(10));
   const userDbEntry = {};
@@ -23,6 +24,8 @@ router.post('/register', (req,res,next)=>{
     req.session.logged = true;
   });
   Member.create(req.body, (err, createdMember)=>{
+      createdMember.posts = posts;
+      console.log(createdMember);
       res.redirect('/posts')
   })
 });

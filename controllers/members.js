@@ -46,7 +46,7 @@ router.post('/', (req,res)=>{
 })
 
 // members show page
-router.get('/:id', (req,res)=>{
+router.get('/show/:id', (req,res)=>{
   Member.findById(req.params.id, (err,foundMember)=>{
     res.render('members/show.ejs', {
       members: foundMember
@@ -55,7 +55,7 @@ router.get('/:id', (req,res)=>{
 })
 
 // members edit page
-router.get('/:id/edit', (req,res)=>{
+router.get('/show/:id/edit', (req,res)=>{
   Member.findById(req.params.id, (err,foundMember)=>{
     res.render('members/edit.ejs', {
       member: foundMember
@@ -64,7 +64,7 @@ router.get('/:id/edit', (req,res)=>{
 })
 
 // members update route
-router.put('/:id', (req,res)=>{
+router.put('/show/:id', (req,res)=>{
   Member.findByIdAndUpdate(req.params.id, req.body, ()=>{
     res.redirect('/members')
   })
@@ -72,7 +72,7 @@ router.put('/:id', (req,res)=>{
 
 
 // members delete route
-router.delete('/:id', (req,res)=>{
+router.delete('/show/:id', (req,res)=>{
   // User.findByIdAndRemove(req.params.id, (err,foundUser)=>{
   //   console.log(foundUser);
   // });
@@ -171,7 +171,9 @@ router.get('/seed/data', (req,res)=>{
 //*******************************************************
 router.get('/dropdatabase/cannotundo', (req,res)=>{
   Member.collection.drop();
-  res.redirect('/members')
+  Post.collection.drop();
+  User.collection.drop();
+  res.redirect('/sessions/register')
 })
 
 //*******************************************************

@@ -15,17 +15,17 @@
     <ul>
       <% for (let i=0; i<members.posts.length; i++) { %>
         <li>
-          <a href="/posts/<%=members.posts[i]._id%>">
+          <a href="/posts/show/<%=members.posts[i]._id%>">
             <%=members.posts[i].title%>
           </a>
         </li>
       <% } %>
     </ul>
     <section>
-      <a href="/members/<%=members._id%>/edit">Edit Profile</a>
+      <a href="/members/show/<%=members._id%>/edit">Edit Profile</a>
     </section>
     <section>
-      <form action="/members/<%=members._id%>?_method=DELETE" method="POST">
+      <form action="/members/show/<%=members._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete Member">
       </form>
     </section>
