@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
   title: {type: String, required: true},
   body: {type: String},
   img: {type: String},
-  memberId: {type: String, required: true},
+  memberId: {type: String},
 })
 
 const Post = mongoose.model('Post', postSchema);
