@@ -21,9 +21,7 @@
         </li>
       <% } %>
     </ul>
-    <section>
-      <a href="/members/show/<%=member._id%>/edit">Edit Profile</a>
-    </section>
+
     <section>
       <form action="/members/show/<%=member._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete Member">
