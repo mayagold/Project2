@@ -30,10 +30,19 @@ const User = require('../models/users.js');
 // Index  : GET    '/posts'               1/7
 //*******************************************************
 router.get('/', (req,res)=>{
-  Post.find({}, (err,foundPosts)=>{
-    res.render('posts/index.ejs', {
-      posts: foundPosts
-    })
+  User.find(req.session.user, (err,foundUser) =>{
+    // console.log(foundUser[0].username);
+      const user = foundUser[0].username;
+      Member.findOne({'username':user}, (err,foundMember)=>{
+        console.log(foundMember);
+        Post.find({}, (err,foundPosts)=>{
+          res.render('posts/index.ejs', {
+            posts: foundPosts,
+            currentUser: foundUser[0].username,
+            memberId: foundMember._id
+          })
+        })
+      })
   })
 })
 

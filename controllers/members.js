@@ -55,7 +55,7 @@ router.get('/show/:id', (req,res)=>{
   Member.findById(req.params.id, (err,foundMember)=>{
     console.log(foundMember);
     res.render('members/show.ejs', {
-      members: foundMember
+      member: foundMember,
     })
   })
 })
@@ -84,9 +84,6 @@ router.put('/show/:id', (req,res)=>{
 // Delete : DELETE '/members/show/:id'      7/7
 //*******************************************************
 router.delete('/show/:id', (req,res)=>{
-  // User.findByIdAndRemove(req.params.id, (err,foundUser)=>{
-  //   console.log(foundUser);
-  // });
   Member.findOneAndRemove(req.params.id, (err,foundMember)=>{
     const postIds = [];
     for (let i=0; i<foundMember.posts.length; i++){

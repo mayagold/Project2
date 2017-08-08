@@ -9,23 +9,23 @@
     <header>
         <% include ../partials/header.ejs %>
     </header>
-    <h1> <%=members.username%> </h1>
-    show page
+    <h1> <%=member.username%> </h1>
+    <p><%=member.about%> </p>
     <h1>Activity</h1>
     <ul>
-      <% for (let i=0; i<members.posts.length; i++) { %>
+      <% for (let i=0; i<member.posts.length; i++) { %>
         <li>
-          <a href="/posts/show/<%=members.posts[i]._id%>">
-            <%=members.posts[i].title%>
+          <a href="/posts/show/<%=member.posts[i]._id%>">
+            <%=member.posts[i].title%>
           </a>
         </li>
       <% } %>
     </ul>
     <section>
-      <a href="/members/show/<%=members._id%>/edit">Edit Profile</a>
+      <a href="/members/show/<%=member._id%>/edit">Edit Profile</a>
     </section>
     <section>
-      <form action="/members/show/<%=members._id%>?_method=DELETE" method="POST">
+      <form action="/members/show/<%=member._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete Member">
       </form>
     </section>

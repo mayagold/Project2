@@ -8,7 +8,7 @@ const Post = require('./posts.js');
 const memberSchema = new mongoose.Schema({
   username: String,
   posts: [Post.schema],
-  about: String,
+  about: [],
 });
 
 // Model

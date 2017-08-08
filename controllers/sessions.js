@@ -12,6 +12,7 @@ const User = require('../models/users.js');
 const Member = require('../models/members.js');
 const bcrypt = require('bcrypt');
 
+
 //*******************************************************
 //    Restful Routes
 //*******************************************************
@@ -36,7 +37,7 @@ router.get('/register', (req,res,next)=>{
 //*******************************************************
 router.post('/register', (req,res,next)=>{
   const posts = [];
-  const about = 'Tell us about yourself!';
+  const about = [];
   const password = req.body.password;
   const passwordHash = bcrypt.hashSync(password,bcrypt.genSaltSync(10));
   const userDbEntry = {};

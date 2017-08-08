@@ -8,6 +8,7 @@
   <body>
     <header>
       <% include ../partials/header.ejs %>
+      Logged in as <a href="/members/show/<%=memberId%>"><%= currentUser %></a> 
     </header>
     <main>
       <h2>Top Posts</h2>
