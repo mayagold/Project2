@@ -101,65 +101,9 @@ router.delete('/show/:id', (req,res)=>{
 })
 
 //*******************************************************
-// seed route: visit once to populate database
+// seed route via seed file: visit once to populate database
 //*******************************************************
-router.get('/seed/data', (req,res)=>{
-  const newMembers = [
-    {
-      username: "SkiBum",
-      posts: [ {
-        title: "Check out this yardsale",
-        body: "my buddy and i hit the backcountry yesterday...",
-        img: "https://media.giphy.com/media/l396J8if3vAF0MqnC/giphy.gif",
-      }
-      ]
-    },
-    {
-      username: "PowHound",
-      posts: [
-        {
-          title: "Japan - big lines?",
-          body: "Who's been to Japan? Advice on where to ski big lines? Going for the first time this Feb",
-        }
-      ]
-    },
-    {
-      username: "Snickers",
-      posts: [ {
-        title: "Check out this yardsale",
-        body: "my buddy and i hit the backcountry yesterday...",
-        img: "https://media.giphy.com/media/l396J8if3vAF0MqnC/giphy.gif",
-      }
-      ]
-    },
-    {
-      username: "CharlieHorse",
-      posts: [ {
-        title: "Check out this yardsale",
-        body: "my buddy and i hit the backcountry yesterday...",
-        img: "https://media.giphy.com/media/l396J8if3vAF0MqnC/giphy.gif",
-      }
-      ]
-    }
-  ];
-  Member.create(newMembers, (err,members)=>{
-    if (err) {
-      console.log(err);
-    } else {
-      for (i=0; i<newMembers.length; i++) {
-        const post = newMembers[i].posts;
-        Post.create(post, (err,createdPost)=>{
-          console.log(createdPost);
-        })
-      }
-    }
-    res.redirect('/posts');
-  })
-})
 
-//*******************************************************
-// Alternate seed route: via seed file
-//*******************************************************
 const dataSeeds = require('../models/seed.js');
 router.get('/seed/newdata/viaseedfile', (req,res)=>{
   Member.insertMany(dataSeeds, (err,members)=>{

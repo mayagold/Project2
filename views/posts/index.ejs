@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-          <% include ../partials/head.ejs %>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css?family=Manuale|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Sedgwick+Ave+Display" rel="stylesheet">
+
   </head>
   <body>
     <div class="header">
@@ -27,7 +31,7 @@
                   <br/>
                   <p><%=posts[i].body%></p>
                   <a href="#">Comments (#)</a>
-                  <p>Like</p>
+                  <a href="#">Like</a>
                 </li>
             <% } %>
         </ul>

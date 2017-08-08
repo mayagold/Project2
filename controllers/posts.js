@@ -31,18 +31,22 @@ const User = require('../models/users.js');
 //*******************************************************
 router.get('/', (req,res)=>{
   User.find(req.session.user, (err,foundUser) =>{
-    // console.log(foundUser[0].username);
-      const user = foundUser[0].username;
-      Member.findOne({'username':user}, (err,foundMember)=>{
-        console.log(foundMember);
-        Post.find({}, (err,foundPosts)=>{
-          res.render('posts/index.ejs', {
-            posts: foundPosts,
-            currentUser: foundUser[0].username,
-            memberId: foundMember._id
+      if (req.session.user) {
+        const user = foundUser[0].username;
+        Member.findOne({'username':user}, (err,foundMember)=>{
+          console.log(foundMember);
+          Post.find({}, (err,foundPosts)=>{
+            res.render('posts/index.ejs', {
+              posts: foundPosts,
+              currentUser: foundUser[0].username,
+              memberId: foundMember._id
+            })
           })
         })
-      })
+      } else {
+        res.redirect('/sessions/register')
+      }
+
   })
 })
 
@@ -50,14 +54,20 @@ router.get('/', (req,res)=>{
 // New    : GET    '/posts/new'           3/7
 //*******************************************************
 router.get('/new', (req,res)=>{
-  Member.find({}, (err,allMembers)=>{
-    User.find(req.session.user, (err,foundUser) =>{
-      console.log(foundUser[0].username);
-    res.render('posts/new.ejs', {
-      members: allMembers,
-      currentUser: foundUser[0].username,
-    })
-    })
+  User.find(req.session.user, (err,foundUser) =>{
+      if (req.session.user) {
+        Member.find({}, (err,allMembers)=>{
+          User.find(req.session.user, (err,foundUser) =>{
+            console.log(foundUser[0].username);
+            res.render('posts/new.ejs', {
+              members: allMembers,
+              currentUser: foundUser[0].username,
+            })
+          })
+        })
+      } else {
+        res.redirect('/sessions/register')
+      }
   })
 })
 
@@ -84,29 +94,41 @@ router.post('/', (req,res)=>{
 // Show   : GET    '/posts/show/:id'      2/7
 //*******************************************************
 router.get('/show/:id', (req,res)=>{
-  Post.findById(req.params.id, (err,foundPost)=>{
-    console.log(foundPost);
-    res.render('posts/show.ejs', {
-      post: foundPost,
+  User.find(req.session.user, (err,foundUser) =>{
+      if (req.session.user) {
+        Post.findById(req.params.id, (err,foundPost)=>{
+          console.log(foundPost);
+          res.render('posts/show.ejs', {
+            post: foundPost,
 
+          })
+        })
+      } else {
+        res.redirect('/sessions/register')
+      }
     })
-  })
 });
 
 //*******************************************************
 // Edit   : GET    '/posts/show/:id/edit' 5/7
 //*******************************************************
 router.get('/show/:id/edit', (req,res)=>{
-  Post.findById(req.params.id, (err,foundPost)=>{
-    Member.find({}, (err,allMembers)=>{
-      Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
-        res.render('posts/edit.ejs', {
-          post: foundPost,
-          members: allMembers,
-          postAuthor: foundPostAuthor
+  User.find(req.session.user, (err,foundUser) =>{
+      if (req.session.user) {
+        Post.findById(req.params.id, (err,foundPost)=>{
+          Member.find({}, (err,allMembers)=>{
+            Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
+              res.render('posts/edit.ejs', {
+                post: foundPost,
+                members: allMembers,
+                postAuthor: foundPostAuthor
+              })
+            })
+          })
         })
-      })
-    })
+      }else{
+        res.redirect('/sessions/register')
+      }
   })
 })
 

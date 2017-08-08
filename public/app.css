@@ -19,21 +19,21 @@ header {
 }
 
 .banner-head {
-  font-family: "Montserrat", sans-serif;
+  font-family: "archivo", sans-serif;
 
 }
 
 #title {
   font-size: 45px;
-  width: 300px;
+
   /*padding-top: 3.3%;*/
   padding-left: 5%;
-  padding-right: 1%;
+  padding-right: 0;
   color: yellow;
 }
 
 #sub {
-  width: 500px;
+  padding-left: 1%;
   font-size: 30px;
   padding-top: 2.2%;
   text-align: left;
@@ -77,14 +77,14 @@ ul li {
 }
 
 .index-posts {
-  /*border: 1px solid black*/
+width: 70%
 }
 
 .post {
   background: white;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   margin-left: 5%;
   padding-left: 2%;
   padding-bottom: 1%;
