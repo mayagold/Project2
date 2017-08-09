@@ -154,7 +154,7 @@ router.put('/show/:id', (req,res)=>{
       postAuthor.posts.id(req.params.id).remove();
       postAuthor.posts.push(updatedPost);
       postAuthor.save((err,data)=>{
-        res.redirect('/posts/show/'+req.params.id), {
+        res.redirect('/posts'), {
           post: updatedPost
         }
       })
