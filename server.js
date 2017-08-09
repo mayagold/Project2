@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const bcrypt = require('bcrypt'),
+const bcrypt = require('bcrypt');
 
 
 

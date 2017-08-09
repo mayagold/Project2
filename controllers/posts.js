@@ -45,7 +45,6 @@ router.get('/', (req,res)=>{
       } else {
         res.redirect('/sessions/register')
       }
-
 })
 
 //*******************************************************
