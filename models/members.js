@@ -7,6 +7,7 @@ const Post = require('./posts.js');
 //*******************************************************
 const memberSchema = new mongoose.Schema({
   username: String,
+  profpic: String,
   posts: [Post.schema],
   about: [],
 });

@@ -9,29 +9,34 @@
     <header>
         <% include ../partials/header.ejs %>
     </header>
-    <main>
-      <h1> <%=post.title %> </h1>
-      <h6>by <%=post.memberId%> </h6>
-      <p> <%=post.body %> </p>
-      <img src="<%= post.img %>" alt="<%= post.title %> "/>
-
-
-      <% if (post.memberId===currentUser) { %>
-
-        <section>
-          <a href="/posts/show/<%=post._id%>/edit">Edit Post</a>
-        </section>
-        <section>
-          <form class="form-style" action="/posts/show/<%=post._id%>?_method=DELETE" method="post">
-            <input type="submit" name="" value="Delete Post">
-          </form>
-        </section>
-
-      <% } %>
-
-
-
-
-    </main>
+    <div class="show-post-page">
+      <main>
+        <h1> <%=post.title %> </h1>
+        <h6>by <%=post.memberId%> </h6>
+        <img src="<%= post.img %>" alt="<%= post.title %> "/>
+        <p> <%=post.body %> </p>
+        <% if (post.memberId===currentUser) { %>
+          <div class="update-post">
+            <section>
+              <a href="/posts/show/<%=post._id%>/edit">Edit Post</a>
+            </section>
+            <section>
+              <form class="form-style" action="/posts/show/<%=post._id%>?_method=DELETE" method="post">
+                <input type="submit" name="" value="Delete Post">
+              </form>
+            </section>
+          </div>
+        <% } %>
+      </main>
+    </div>
+    <!-- <div class="show-post-page-comments">
+      <section>
+        <h5>comment comment comment</h5>
+        <h5>comment comment comment</h5>
+        <h5>comment comment comment</h5>
+        <h5>comment comment comment</h5>
+        <h5>comment comment comment</h5>
+      </section>
+    </div> -->
   </body>
 </html>
