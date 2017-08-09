@@ -91,13 +91,10 @@ router.get('/show/:id', (req,res)=>{
         console.log(req.session.logged);
         Post.find( {}, (err,allPosts)=>{
           Post.findById(req.params.id, (err,foundPost)=>{
-            console.log("req.params.id: ", req.params.id);
-            console.log("------------------------");
-            console.log(foundPost);
-            console.log("------------------------");
-            res.render('posts/show.ejs', {
-              post: foundPost,
-            })
+              res.render('posts/show.ejs', {
+                post: foundPost,
+                currentUser: req.session.username
+              })
           })
         })
       } else {
@@ -109,23 +106,23 @@ router.get('/show/:id', (req,res)=>{
 // Edit   : GET    '/posts/show/:id/edit' 5/7
 //*******************************************************
 router.get('/show/:id/edit', (req,res)=>{
-      if (req.session.logged===true) {
-        Post.findById(req.params.id, (err,foundPost)=>{
-          console.log("found post : " + foundPost);
-          Member.find({}, (err,allMembers)=>{
-            Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
-                        console.log("found author: " + foundPostAuthor);
-              res.render('posts/edit.ejs', {
-                post: foundPost,
-                members: allMembers,
-                postAuthor: foundPostAuthor
-              })
-            })
+  if (req.session.logged===true) {
+    Post.findById(req.params.id, (err,foundPost)=>{
+      console.log("found post : " + foundPost);
+      Member.find({}, (err,allMembers)=>{
+        Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
+                    console.log("found author: " + foundPostAuthor);
+          res.render('posts/edit.ejs', {
+            post: foundPost,
+            members: allMembers,
+            postAuthor: foundPostAuthor
           })
         })
-      }else{
-        res.redirect('/sessions/register')
-      }
+      })
+    })
+  }else{
+    res.redirect('/sessions/register')
+  }
 })
 
 //*******************************************************
@@ -154,7 +151,7 @@ router.put('/show/:id', (req,res)=>{
       postAuthor.posts.id(req.params.id).remove();
       postAuthor.posts.push(updatedPost);
       postAuthor.save((err,data)=>{
-        res.redirect('/posts'), {
+        res.redirect('/posts/show/'+req.params.id), {
           post: updatedPost
         }
       })

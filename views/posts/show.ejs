@@ -15,14 +15,23 @@
       <p> <%=post.body %> </p>
       <img src="<%= post.img %>" alt="<%= post.title %> "/>
 
-      <section>
-        <a href="/posts/show/<%=post._id%>/edit">Edit Post</a>
-      </section>
-      <section>
-        <form class="form-style" action="/posts/show/<%=post._id%>?_method=DELETE" method="post">
-          <input type="submit" name="" value="Delete Post">
-        </form>
-      </section>
+
+      <% if (post.memberId===currentUser) { %>
+
+        <section>
+          <a href="/posts/show/<%=post._id%>/edit">Edit Post</a>
+        </section>
+        <section>
+          <form class="form-style" action="/posts/show/<%=post._id%>?_method=DELETE" method="post">
+            <input type="submit" name="" value="Delete Post">
+          </form>
+        </section>
+
+      <% } %>
+
+
+
+
     </main>
   </body>
 </html>
