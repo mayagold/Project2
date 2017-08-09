@@ -15,7 +15,7 @@ A members-only forum for backcountry skiers and snowboarders to upload, share, a
 Stretch Features:
 
 header link to my profile / edit profile / delete ( don't show this on every profile page )
-CSS Partials
+CSS Partials xx
 Design interactivity
 Upvotes
 Hashtags
