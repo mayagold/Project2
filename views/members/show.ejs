@@ -13,11 +13,11 @@
     <p><%=member.about%> </p>
     <h1>Activity</h1>
     <ul>
-      <% for (let i=0; i<member.posts.length; i++) { %>
+      <% for (let i=0; i<posts.length; i++) { %>
         <li>
-
-            <%=member.posts[i].title%>
-        
+          <a href="/posts/show/<%=posts[i]._id%>">
+            <%=posts[i].title%>
+          </a>
         </li>
       <% } %>
     </ul>

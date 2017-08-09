@@ -61,10 +61,14 @@ router.get('/', (req,res)=>{
 router.get('/show/:id', (req,res)=>{
         Member.findById(req.params.id, (err,foundMember)=>{
           User.findOne({'username':req.session.username}, (err,foundUser)=>{
-            console.log(foundMember);
-            res.render('members/show.ejs', {
-              member: foundMember,
-              user: foundUser,
+            Post.find({'memberId':foundMember.username}, (err,allPosts)=> {
+              console.log(foundMember);
+              console.log(allPosts);
+              res.render('members/show.ejs', {
+                member: foundMember,
+                user: foundUser,
+                posts: allPosts
+              })
             })
           })
         })

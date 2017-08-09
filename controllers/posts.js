@@ -89,9 +89,13 @@ router.post('/', (req,res)=>{
 //*******************************************************
 router.get('/show/:id', (req,res)=>{
       if (req.session.logged===true) {
+        console.log(req.session.logged);
         Post.find( {}, (err,allPosts)=>{
           Post.findById(req.params.id, (err,foundPost)=>{
+            console.log("req.params.id: ", req.params.id);
+            console.log("------------------------");
             console.log(foundPost);
+            console.log("------------------------");
             res.render('posts/show.ejs', {
               post: foundPost,
             })
