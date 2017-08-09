@@ -15,17 +15,17 @@
     <ul>
       <% for (let i=0; i<member.posts.length; i++) { %>
         <li>
-          <a href="/posts/show/<%=member.posts[i]._id%>">
+
             <%=member.posts[i].title%>
-          </a>
+        
         </li>
       <% } %>
     </ul>
-
+<!--
     <section>
       <form action="/members/show/<%=member._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete Member">
       </form>
-    </section>
+    </section> -->
   </body>
 </html>

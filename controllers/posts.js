@@ -30,15 +30,14 @@ const User = require('../models/users.js');
 // Index  : GET    '/posts'               1/7
 //*******************************************************
 router.get('/', (req,res)=>{
-  User.find(req.session.user, (err,foundUser) =>{
-      if (req.session.user) {
-        const user = foundUser[0].username;
+      if (req.session.logged===true) {
+        const user = req.session.username;
         Member.findOne({'username':user}, (err,foundMember)=>{
           console.log(foundMember);
           Post.find({}, (err,foundPosts)=>{
             res.render('posts/index.ejs', {
               posts: foundPosts,
-              currentUser: foundUser[0].username,
+              currentUser: req.session.username,
               memberId: foundMember._id
             })
           })
@@ -47,28 +46,23 @@ router.get('/', (req,res)=>{
         res.redirect('/sessions/register')
       }
 
-  })
 })
 
 //*******************************************************
 // New    : GET    '/posts/new'           3/7
 //*******************************************************
 router.get('/new', (req,res)=>{
-  User.find(req.session.user, (err,foundUser) =>{
-      if (req.session.user) {
+      if (req.session.logged===true) {
         Member.find({}, (err,allMembers)=>{
-          User.find(req.session.user, (err,foundUser) =>{
-            console.log(foundUser[0].username);
+            console.log(req.session.username);
             res.render('posts/new.ejs', {
               members: allMembers,
-              currentUser: foundUser[0].username,
+              currentUser: req.session.username,
             })
-          })
         })
       } else {
         res.redirect('/sessions/register')
       }
-  })
 })
 
 // assigns current user as author of post
@@ -94,30 +88,30 @@ router.post('/', (req,res)=>{
 // Show   : GET    '/posts/show/:id'      2/7
 //*******************************************************
 router.get('/show/:id', (req,res)=>{
-  User.find(req.session.user, (err,foundUser) =>{
-      if (req.session.user) {
-        Post.findById(req.params.id, (err,foundPost)=>{
-          console.log(foundPost);
-          res.render('posts/show.ejs', {
-            post: foundPost,
-
+      if (req.session.logged===true) {
+        Post.find( {}, (err,allPosts)=>{
+          Post.findById(req.params.id, (err,foundPost)=>{
+            console.log(foundPost);
+            res.render('posts/show.ejs', {
+              post: foundPost,
+            })
           })
         })
       } else {
         res.redirect('/sessions/register')
       }
-    })
 });
 
 //*******************************************************
 // Edit   : GET    '/posts/show/:id/edit' 5/7
 //*******************************************************
 router.get('/show/:id/edit', (req,res)=>{
-  User.find(req.session.user, (err,foundUser) =>{
-      if (req.session.user) {
+      if (req.session.logged===true) {
         Post.findById(req.params.id, (err,foundPost)=>{
+          console.log("found post : " + foundPost);
           Member.find({}, (err,allMembers)=>{
             Member.findOne( {'posts._id':req.params.id}, (err, foundPostAuthor)=>{
+                        console.log("found author: " + foundPostAuthor);
               res.render('posts/edit.ejs', {
                 post: foundPost,
                 members: allMembers,
@@ -129,7 +123,6 @@ router.get('/show/:id/edit', (req,res)=>{
       }else{
         res.redirect('/sessions/register')
       }
-  })
 })
 
 //*******************************************************
@@ -137,11 +130,14 @@ router.get('/show/:id/edit', (req,res)=>{
 //*******************************************************
 router.delete('/show/:id', (req,res)=>{
   Post.findByIdAndRemove(req.params.id, (err,foundPost)=>{
-    Member.findOne( {'posts._id':req.params.id}, (err,foundMember)=>{
-      foundMember.posts.id(req.params.id).remove();
-      foundMember.save((err,data)=>{
-        res.redirect('/posts')
+    Member.find({}, (err,allMembers)=>{
+      Member.findOne( {'posts._id':req.params.id}, (err,foundMember)=>{
+        foundMember.posts.id(req.params.id).remove();
+        foundMember.save((err,data)=>{
+          res.redirect('/posts')
+        })
       })
+
     })
   })
 })

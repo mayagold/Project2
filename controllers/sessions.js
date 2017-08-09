@@ -36,25 +36,26 @@ router.get('/register', (req,res,next)=>{
 // Create : POST   '/sessions/register'          4/7
 //*******************************************************
 router.post('/register', (req,res,next)=>{
-  const posts = [];
-  const about = [];
-  const password = req.body.password;
-  const passwordHash = bcrypt.hashSync(password,bcrypt.genSaltSync(10));
-  const userDbEntry = {};
+  let posts = [];
+  let about = [];
+  let password = req.body.password;
+  let passwordHash = bcrypt.hashSync(password,bcrypt.genSaltSync(10));
+  let userDbEntry = {};
   userDbEntry.username = req.body.username;
   userDbEntry.password = passwordHash;
   User.create(userDbEntry, (err,user)=>{
-    console.log(user);
-    req.session.user = user.username;
-    req.session.logged = true;
-  });
-  // Create new member
-  Member.create(req.body, (err, createdMember)=>{
+    console.log("username: " + req.body.username + "and password "+ req.body.password);
+    // req.session.user = user.username;
+    // req.session.logged = true;
+    Member.create(req.body, (err, createdMember)=>{
       createdMember.posts = posts;
       createdMember.about = about;
-      console.log(createdMember);
-      res.redirect('/posts')
-  })
+      console.log("created: "+createdMember+"and thats it");
+      userDbEntry={};
+    })
+    res.redirect('/sessions/login');
+  });
+  // Create new member
 });
 
 //*******************************************************
@@ -89,10 +90,12 @@ router.post('/login', (req,res,next)=>{
 //        : GET    '/sessions/logout'            2/7
 //*******************************************************
 router.get('/logout', (req,res)=>{
+        User.remove(req.session.user);
   req.session.destroy(function(err){
     if(err){
-
+      console.log(err);
     } else {
+      console.log('logged out');
       res.redirect('/sessions/login')
     }
   })

@@ -29,19 +29,26 @@ const User = require('../models/users.js');
 // Index  : GET    '/members'               1/7
 //*******************************************************
 router.get('/', (req,res)=>{
-  Member.find({}, (err,foundMembers)=>{
-    res.render('members/index.ejs', {
-      members: foundMembers
-    })
-  })
+        Member.find({}, (err,foundMembers)=>{
+          res.render('members/index.ejs', {
+            members: foundMembers
+          })
+        })
 })
 
 //*******************************************************
 // New    : GET    '/members/new'           3/7
 //*******************************************************
-router.get('/new', (req,res)=>{
-  res.render('members/new.ejs')
-})
+// router.get('/new', (req,res)=>{
+//   User.find(req.session.user, (err,foundUser) =>{
+//       if (req.session.user) {
+//         res.render('members/new.ejs')
+//       } else {
+//         res.redirect('/sessions/register')
+//
+//       }
+//     })
+// })
 
 //*******************************************************
 // Create : POST   '/members'               4/7
@@ -52,23 +59,26 @@ router.get('/new', (req,res)=>{
 // Show   : GET    '/members/show/:id'      2/7
 //*******************************************************
 router.get('/show/:id', (req,res)=>{
-  Member.findById(req.params.id, (err,foundMember)=>{
-    console.log(foundMember);
-    res.render('members/show.ejs', {
-      member: foundMember,
-    })
-  })
+        Member.findById(req.params.id, (err,foundMember)=>{
+          User.findOne({'username':req.session.username}, (err,foundUser)=>{
+            console.log(foundMember);
+            res.render('members/show.ejs', {
+              member: foundMember,
+              user: foundUser,
+            })
+          })
+        })
 })
 
 //*******************************************************
 // Edit   : GET    '/members/show/:id/edit' 5/7
 //*******************************************************
 router.get('/show/:id/edit', (req,res)=>{
-  Member.findById(req.params.id, (err,foundMember)=>{
-    res.render('members/edit.ejs', {
-      member: foundMember
-    })
-  })
+        Member.findById(req.params.id, (err,foundMember)=>{
+          res.render('members/edit.ejs', {
+            member: foundMember,
+          })
+        })
 })
 
 //*******************************************************
@@ -83,22 +93,22 @@ router.put('/show/:id', (req,res)=>{
 //*******************************************************
 // Delete : DELETE '/members/show/:id'      7/7
 //*******************************************************
-router.delete('/show/:id', (req,res)=>{
-  Member.findOneAndRemove(req.params.id, (err,foundMember)=>{
-    const postIds = [];
-    for (let i=0; i<foundMember.posts.length; i++){
-      postIds.push(foundMember.posts[i]._id);
-    } Post.remove(
-      {
-        _id: {
-          $in: postIds
-        }
-      }, (err,data)=>{
-        res.redirect('/posts')
-      }
-    )
-  })
-})
+// router.delete('/show/:id', (req,res)=>{
+//   Member.findOneAndRemove(req.params.id, (err,foundMember)=>{
+//     const postIds = [];
+//     for (let i=0; i<foundMember.posts.length; i++){
+//       postIds.push(foundMember.posts[i]._id);
+//     } Post.remove(
+//       {
+//         _id: {
+//           $in: postIds
+//         }
+//       }, (err,data)=>{
+//         res.redirect('/posts')
+//       }
+//     )
+//   })
+// })
 
 //*******************************************************
 // seed route via seed file: visit once to populate database
@@ -114,7 +124,7 @@ router.get('/seed/newdata/viaseedfile', (req,res)=>{
         const post = dataSeeds[i].posts;
         post[0].memberId = dataSeeds[i].username;
         console.log(post[0]);
-        Post.create(post, (err,createdPost)=>{
+        Post.create(post[0], (err,createdPost)=>{
             console.log(createdPost);
         })
       }
