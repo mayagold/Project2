@@ -4,7 +4,8 @@ body {
 }
 
 header {
-  margin: 0 auto
+  margin: 0 auto;
+
 }
 
 a:hover {
@@ -12,44 +13,58 @@ a:hover {
 }
 
 .banner {
-  width: 100%;
-  padding: 30px;
+  width: 75%;
+  padding-top: 30px;
+  padding-bottom: 20px;
   background: white;
-  margin: 0;
-  border-bottom: 2px solid black;
+  margin: 0 auto;
+  border: 1px solid black;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .banner-head {
-  font-family: "archivo", sans-serif;
+  font-family: "montserrat", sans-serif;
   font-size: 45px;
-  padding-left: 5%;
+  padding-left: 0;
   padding-right: 0;
+  text-align: center;
 }
 
 #title {
-
-  /*padding-top: 3.3%;*/
-
+  font-size: 100px;
+  line-height: 50px;
+  padding-top: 20px;
+  margin: 0 auto;
+  text-shadow: 2px 2px #888888;
 }
 
 #sub {
-  padding-left: 4%;
   color: crimson;
+  font-size: 30px;
+  padding-bottom: 0;
+  margin: 0;
+  text-shadow: none;
 }
 
 .banner-nav {
   width: 100%;
-  padding-left: 5%;
+  text-align: center;
+  padding-top: 20px
 }
 
 .banner-nav a {
   color: black;
   padding-right: 20px;
+  padding-left: 20px
 }
 
 .user-info {
-  padding-left: 6%;
-  padding-top: 1%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.banner-nav a:hover {
+    font-weight: bold;
 }
 
 a {
@@ -60,20 +75,18 @@ a {
 ul {
     padding-left: 0
 }
-ul li {
-  text-align: left;
-  display: block;
-  padding: 40px
-}
+
 
 .post-index-head {
   font-size: 30px;
-  margin-left: 5%;
-  margin-bottom: 0
+  margin: 20px auto;
+  text-align: center;
+
 }
 
 .index-posts {
-width: 70%
+width: 70%;
+margin: 0 auto
 }
 
 .post {
@@ -81,15 +94,13 @@ width: 70%
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 5%;
+  /*margin-left: 5%;*/
   padding-left: 2%;
   padding-bottom: 1%;
   padding-top: 1%;
-  margin-bottom: 10px;
-  border-left: 5px solid black;
-  border-top: 1px solid black;
-  border-bottom: 2px solid black;
-  border-right: 1px solid black;
+  margin: 10px auto;
+  box-shadow: 10px 10px 5px #888888;
+  border: 1px solid black;
   /*border-top-right-radius: 50px;*/
   /*border-bottom-right-radius: 20px;*/
 }
@@ -128,9 +139,6 @@ width: 70%
   color: crimson
 }
 
-strong {
-  font-size: 12px
-}
 
 .show-post-page {
   margin: 0 auto;
@@ -157,21 +165,143 @@ strong {
 .show-post-page-comments {
   display: inline-flex;
   flex-wrap: wrap;
+  flex-flow: row;
   max-width: 300px;
 }
 
 
 .community {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 100%;
+  text-align: center;
 }
 
-.community main ul li {
-  display: inline-block;
-  padding: 20px;
-  height: 100px;
-  width: 100px;
-  background: white;
+.community-member {
+  display: inline-flex;
+  padding: 0;
+  height: 200px;
+  width: 200px;
+  background: rgba(255,255,255,.4);
   border: 2px solid black;
   margin: 10px;
+}
+
+.community-member:hover {
+  background: rgba(0,0,0,0);
+}
+
+.community-member a {
+  text-align: center;
+  height: 20px;
+  z-index: 100
+}
+
+.community-member img {
+  height: 200px;
+  width: 200px;
+  z-index: -10;
+  position: absolute;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.com-mem-id a {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.about-page {
+  max-width: 800px;
+  margin: 60px auto;
+  text-align: center;
+  border: 2px solid black;
+  background: white;
+  padding: 15px;
+}
+
+.show-user {
+  text-align: center;
+  border: 2px solid black;
+  background: white;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px
+}
+
+.show-user img {
+  border: 1px solid black;
+  padding: 1px;
+  max-width:700px;
+}
+
+.show-user p {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 30px
+}
+
+.show-user ul {
+  margin: 0 auto;
+  max-width: 500px;
+  padding-left: 0;
+}
+
+.show-user ul li {
+  text-align: center;
+  padding-top: 0
+}
+
+
+.form-style {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+
+.form-style label{
+    display: block;
+    margin: 0;
+}
+
+.form-style label > span {
+    width: 100px;
+    float: left;
+    text-align: right;
+    padding-top: 14px;
+    /*padding-right: 5px;*/
+}
+
+.form-style input{
+    width: 48%;
+
+}
+
+.form-style input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+
+.form-style input:hover {
+    border: 1px solid dimgrey;
+}
+
+.submit {
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  border: none;
+  padding: 10px;
+  background: #EBEBEB;
+  font-size: 18px;
+  margin: 10px;
+  font-weight: bold;
 }

@@ -9,22 +9,16 @@
     <header>
       <% include ../partials/header.ejs %>
     </header>
-
     <main>
     <h1>Update Post</h1>
-
-    <form class="form-style" action="/posts/show/<%=post._id%>?_method=PUT" method="post">
-
-      Title: <input type="text" name="title" value=" <%=post.title%> "/><br/>
-      Content: <input type="text" name="body" value="<%=post.body%> "/><br/>
-      Image/Video Link: <input type="text" name="img" value="<%=post.img%> "/><br/>
-      <input type="submit" value="Send It">
-
-    </form>
-
+      <div class="form-style">
+        <form class="form" action="/posts/show/<%=post._id%>?_method=PUT" method="post">
+          <label><span>Title: </span><input type="text" name="title" value=" <%=post.title%> "/></label><br/>
+          <label><span>Content:</span> <input type="text" name="body" value="<%=post.body%> "/></label><br/>
+          <label><span>Image/Video Link:</span> <input type="text" name="img" value="<%=post.img%> "/></label><br/>
+          <input type="submit" value="Send It">
+        </form>
+      </div>
     </main>
-
-
-
   </body>
 </html>

@@ -11,14 +11,18 @@
     </header>
     <div class="community">
       <main>
-        <ul>
+        <h1>Our Community</h1>
+        <h2>Check out what your friends are up to! You may just meet your next best ski buddy today.</h2>
           <% for (i=0; i<members.length; i++) { %>
-            <li>
-              <a href="/members/show/<%=members[i]._id%>"> <%=members[i].username%> </a>
-            </li>
+            <div class="community-member">
+              <div class="com-mem-id">
+                <a href="/members/show/<%=members[i]._id%>"> <%=members[i].username%> </a><br/><br/>
+              </div>
+              <img src="<%=members[i].profpic %>" alt="" >
+            </div>
             <% } %>
 
-        </ul>
+
         </main>
     </div>
   </body>

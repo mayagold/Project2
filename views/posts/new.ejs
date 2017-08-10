@@ -10,15 +10,16 @@
         <% include ../partials/header.ejs %>
     </header>
     <main>
-      <form class="form-style" action="/posts" method="POST">
-        Credit: <%= currentUser %>
-        <input type="text" name="memberId" value="<%= currentUser %>">
-        <br/>
-        Title: <input type="text" name="title" value=""/><br/>
-        Content: <input type="textarea" name="body" value=""/><br/>
-        Image/Video Link: <input type="text" name="img" value=""/><br/>
-        <input type="submit" value="Send It">
-      </form>
+      <div class="form-style">
+        <form class="form-style" action="/posts" method="POST">
+          <input type="hidden" name="memberId" value="<%= currentUser %>">
+          <br/>
+          <label><span>Title:</span> <input type="text" name="title" value=""/></label><br/>
+          <label><span>Content:</span> <input type="textarea" name="body" value=""/></label><br/>
+          <label><span>Image/Video Link:</span> <input type="text" name="img" value=""/></label><br/>
+          <input type="submit" value="Send It">
+        </form>
+      </div>
     </main>
   </body>
 </html>
