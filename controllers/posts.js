@@ -105,6 +105,8 @@ router.get('/show/:id', (req,res)=>{
 //*******************************************************
 // Edit   : GET    '/posts/show/:id/edit' 5/7
 //*******************************************************
+// add value of image in image input
+
 router.get('/show/:id/edit', (req,res)=>{
   if (req.session.logged===true) {
     Post.findById(req.params.id, (err,foundPost)=>{

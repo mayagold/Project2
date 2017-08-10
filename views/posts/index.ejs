@@ -4,36 +4,37 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="app.css">
-    <link href="https://fonts.googleapis.com/css?family=Manuale|Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
 
   </head>
   <body>
     <div class="header">
       <header>
-        <% include ../partials/header.ejs %>
         <div class="user-info">
-          Logged in as <a href="/members/show/<%=memberId%>"><%= currentUser %></a> || <a href="/members/show/<%=memberId%>/edit">Edit Profile</a>
+          Hello, <a href="/members/show/<%=memberId%>"><%= currentUser %>!</a> <a href="/members/show/<%=memberId%>/edit">Edit Profile</a>
         </div>
+        <% include ../partials/header.ejs %>
       </header>
     </div>
     <main>
-      <h2 class="post-index-head">Top Posts</h2>
+      <h2 class="post-index-head">Trending on downdays</h2>
       <div class="index-posts">
         <ul>
             <% for (i=0; i<posts.length; i++) { %>
                 <li class="post">
                   <div class="post-head">
-                    <img src="<%=posts[i].img%>" alt=""><a href="/posts/show/<%=posts[i]._id%>"><h3 class="post-title"><%=posts[i].title%></h3> </a> <br/>
-                  </div>
-                  <h6>by <strong> 
-                    <%=posts[i].memberId%>
-                  </strong> </h6>
-                  <br/>
-                  <p><%=posts[i].body%></p>
-                  <a href="#">Comments (#)</a>
-                  <a href="#">Like</a>
+                    <img src="<%=posts[i].img%>" alt=""/>
+                    <div class="post-head-text">
+                      <a href="/posts/show/<%=posts[i]._id%>"><h3 class="post-title"><%=posts[i].title%></h3> </a>
+                      <h6>by <strong>
+                        <%=posts[i].memberId%>
+                      </strong> </h6>
+
+                    </div>
+                </div>
+
                 </li>
             <% } %>
         </ul>

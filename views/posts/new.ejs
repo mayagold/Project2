@@ -10,6 +10,8 @@
         <% include ../partials/header.ejs %>
     </header>
     <main>
+      <h1>Create a New Post</h1>
+      <h3>Show us what you got.</h3>
       <div class="form-style">
         <form class="form-style" action="/posts" method="POST">
           <input type="hidden" name="memberId" value="<%= currentUser %>">
