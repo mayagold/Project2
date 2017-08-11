@@ -10,10 +10,16 @@
     <header>
       <% include partials/header.ejs %>
     </header>
-  <body>
+  <body class="contact">
     <h1>Contact Us</h1>
-    some email stuff, some social media stuff, link away
     <h5>built by <a href="https://github.com/mayagold">mayagold</a> and hosted on heroku</h5>
   </body>
-  <% include ../partials/footer.ejs %>
+  <nav class="footer-nav">
+    <a href="/posts" id="footer-tagline">i'd rather be skiing</a>
+    <a href="/posts/new">New Post</a>
+    <a href="/members">Community</a>
+    <a href="/sessions/logout">Log Out</a>
+    <br/><br/>
+    Copyright (c) 2017  All Rights Reserved
+  </nav>
 </html>

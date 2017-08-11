@@ -19,6 +19,7 @@ module.exports = [
       {
         title: "Japan - big lines?",
         body: "Who's been to Japan? Advice on where to ski big lines? Going for the first time this Feb",
+        img: "https://s-media-cache-ak0.pinimg.com/236x/ac/ec/8f/acec8f80328df159c8bea03844ee9575--snowboard-girl-japan-trip.jpg"
       }
     ],
     about: ["no bark all bite."]
