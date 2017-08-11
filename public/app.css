@@ -1,5 +1,5 @@
 body {
-background-color: rgba(0,0,0,.7);
+background-color: whitesmoke;
   font-family: "open sans condensed", sans-serif;
   color: black;
 }
@@ -28,9 +28,18 @@ a:hover {
   color: steelblue;
 }
 
-footer {
-    font-family: "Amatic SC", cursive;
-    background: lightgrey;
+.footer-nav {
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 30px;
+  color: steelblue
+}
+
+.footer-nav a {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: black
 }
 
 .banner {
@@ -55,9 +64,14 @@ footer {
   text-align: center;
 }
 
+.banner-head a{
+  color: steelblue;
+}
+
 #title {
   font-family: "Amatic SC", cursive;
   font-size: 150px;
+  color: crimson;
   font-weight: lighter;
   line-height: 50px;
   padding-top: 40px;
@@ -83,8 +97,8 @@ footer {
 
 .banner-nav a {
   color: crimson;
-  padding-right: 40px;
-  padding-left: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
   font-size: 30px
 }
 
@@ -95,16 +109,16 @@ footer {
   margin: 0 auto;
   padding: 14px;
   text-align: center;
-  color: black;
+  color: crimson;
   font-weight: bold;
 }
 
 .user-info a {
-  color: black;
+  color: crimson;
 }
 
 .user-info a:hover {
-  color: crimson;
+  color: gold;
 }
 
 .banner-nav a:hover {
@@ -132,7 +146,6 @@ ul {
 
 .index-posts {
   width: 100%;
-
   margin: 0 auto;
 }
 
@@ -143,7 +156,7 @@ ul {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1%;
-  margin: 30px auto;
+  margin: 10px auto;
   font-size: 20px;
   display: block;
 }
@@ -159,16 +172,16 @@ ul {
   font-size: 36px;
   padding: 0;
   margin-bottom: 0;
-  color: gold
+  color: crimson
 }
 
 .post-title:hover {
-  color: crimson
+  color: gold
 }
 
 
 .post h6 {
-  color: whitesmoke
+  color: black
 }
 
 
@@ -191,7 +204,7 @@ ul {
 
 .show-post-page main {
   margin: 0 auto;
-  color: whitesmoke;
+  color: black;
 }
 
 .show-post-page h1 {
@@ -211,7 +224,7 @@ ul {
 .show-post-page h6 {
   font-size: 20px;
   margin-top: 10px;
-  color: whitesmoke
+  color: black
 }
 
 .show-post-page p {
@@ -220,9 +233,10 @@ ul {
 }
 
 form {
-  background: rgba(0,0,0,.7);
-  color: whitesmoke;
+  background: whitesmoke;
+  color: black;
   padding: 30px;
+  border: 1px solid black;
   border-radius: 30px;
   box-shadow: 10px 10px 5px #000000;
 }
@@ -280,16 +294,16 @@ h1 {
   margin: 60px auto;
   text-align: center;
   padding: 0px;
-  color: whitesmoke;
+  color: black;
 }
 
 .about-page a {
-  color: white;
+  color: crimson;
   font-size: 25px
 }
 
 .about-page a:hover {
-  color: crimson
+  color: gold
 }
 
 .show-user {
@@ -297,7 +311,7 @@ h1 {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  color: whitesmoke;
+  color: black;
 }
 
 .show-user img {
@@ -364,7 +378,7 @@ main h1 {
 }
 
 .form-style h3,a {
-  color: whitesmoke;
+  color: black;
 }
 
 .form-style input {
@@ -383,7 +397,7 @@ main h1 {
 }
 
 .form-style input:hover {
-    background: gold;
+    background: crimson;
 }
 
 form .submit {
@@ -391,7 +405,7 @@ form .submit {
   text-align: center;
   border: none;
   padding: 10px;
-  background: crimson;
+  background: whitesmoke;
   font-size: 18px;
   margin: 0 auto;
   font-weight: bold;
