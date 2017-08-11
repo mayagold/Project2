@@ -13,9 +13,9 @@
       <h2>Edit Profile</h2>
       <h6>Add some personal information</h6>
       <div class="form-style">
-        <form class="form" action="/members/show/<%=member._id%>?_method=PUT" method="post">
+        <form class="form-style" action="/members/show/<%=member._id%>?_method=PUT" method="post">
           <label><span>About Me:</span><br/> <input type="textarea" name="about" value="<%=member.about%>"/></label><br/>
-          Add a profile picture: <input type="text" name="profpic"/><br/>
+          <label><span>Add a profile picture:</span> <input type="text" name="profpic"/></label><br/>
           <input type="submit" value="Update Profile">
         </form>
       </div>
