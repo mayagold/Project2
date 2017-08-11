@@ -10,7 +10,7 @@
         <% include ../partials/header.ejs %>
     </header>
     <main>
-      <h1>Create a New Post</h1>
+      <h1>POST TO DOWNDAYS</h1>
       <h3>Show us what you got.</h3>
       <div class="form-style">
         <form class="form-style" action="/posts" method="POST">
@@ -19,9 +19,10 @@
           <label><span>Title:</span> <input type="text" name="title" value=""/></label><br/>
           <label><span>Content:</span> <input type="textarea" name="body" value=""/></label><br/>
           <label><span>Image/Video Link:</span> <input type="text" name="img" value=""/></label><br/>
-          <input type="submit" value="Send It">
+          <input class="submit" type="submit" value="Send It">
         </form>
       </div>
     </main>
+    <% include ../partials/footer.ejs %>
   </body>
 </html>

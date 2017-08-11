@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <meta charset="utf-8">
     <title>Down Days</title>
-    <% include partials/head.ejs %>
   </head>
-  <body>
-    <h1>Down Days</h1>
-    <h1>we'd rather be skiing.</h1>
-    <h5></h5>
-    <a href="/sessions/login">Login</a>
-    <a href="/sessions/register">Join the Community</a>
+  <body class=welcome-page>
+    <br/><br/><br/><br/><br/>
+    <div class="banner">
+      <h1 class="banner-head" id="title">
+        <a href="/posts">downdays</a><br/>
+        <span id="sub">we'd rather be skiing</span>
+      </h1>
+      <nav class="banner-nav">
+        <a href="/sessions/login">Log in</a>
+        <a href="/sessions/register">Join the Community</a>
+      </nav>
+    </div>
   </body>
 </html>

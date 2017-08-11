@@ -12,7 +12,6 @@
     <div class="community">
       <main>
         <h1>Our Community</h1>
-        <h3>Check out what your friends are up to!</h3>
           <% for (i=0; i<members.length; i++) { %>
             <div class="community-member">
               <div class="com-mem-id">
@@ -21,9 +20,8 @@
               <img src="<%=members[i].profpic %>" alt="" >
             </div>
             <% } %>
-
-
         </main>
     </div>
+    <% include ../partials/footer.ejs %>
   </body>
 </html>
