@@ -15,7 +15,7 @@
       <div class="form-style">
         <form class="form-style" action="/members/show/<%=member._id%>?_method=PUT" method="post">
           <label><span>About Me:</span><br/> <input type="textarea" name="about" value="<%=member.about%>"/></label><br/>
-          <label><span>Add a profile picture:</span> <input type="text" name="profpic"/></label><br/>
+          <label><span>Add a profile picture:</span> <input type="text" name="profpic" value="<%=member.profpic%>"/></label><br/>
           <input type="submit" value="Update Profile">
         </form>
       </div>
