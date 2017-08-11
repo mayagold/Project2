@@ -419,7 +419,7 @@ main h1 {
 }
 
 .form-style input:hover {
-    background: crimson;
+    background: lightgrey;
 }
 
 form .submit {
