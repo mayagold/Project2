@@ -9,6 +9,9 @@ const postSchema = new mongoose.Schema({
   body: {type: String},
   img: {type: String},
   memberId: {type: String},
+  commentCount: {type: Number, default: 0},
+  comments: [ {type: String} ],
+  likes: {type: Number, default: 0}
 })
 
 // model

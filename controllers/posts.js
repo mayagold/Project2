@@ -162,6 +162,18 @@ router.put('/show/:id', (req,res)=>{
 })
 
 //*******************************************************
+// Like a post : PUT    '/posts/show/:id'      6/7
+//*******************************************************
+router.put('/like/:id', (req,res)=>{
+  Post.findByIdAndUpdate(req.params.id, {$inc: {likes:1}}, (err,updatedPost)=>{
+    res.redirect('/posts')
+  })
+})
+
+
+
+
+//*******************************************************
 // module exports - access this file in server.js
 //*******************************************************
 module.exports = router;
