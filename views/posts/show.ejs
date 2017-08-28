@@ -15,7 +15,7 @@
         <h6>by <%=post.memberId%> </h6>
         <img src="<%= post.img %>" alt="<%= post.title %> "/>
         <p> <%=post.body %> </p>
-        <a href="#">Like</a>
+        <a href="#">Likes: </a><%=post.likes%><br/>
         <a href="#">Comment</a>
         <h2>Comments</h2>
         <% if (post.memberId===currentUser) { %>
