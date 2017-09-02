@@ -1,13 +1,15 @@
 body {
   background-color: #000000;
-  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+  /*background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");*/
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   font-family: "open sans condensed", sans-serif;
   color: black;
 }
 
 .welcome-page {
-background-color: whitesmoke;
+  background-color: black;
+  /*background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");*/
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .welcome-page-options {
@@ -23,12 +25,13 @@ background-color: whitesmoke;
 }
 
 .welcome-page form {
-  background: whitesmoke;
-  color: black
+  background: black;
+  color: whitesmoke
 }
-
+/*
+this should only appear when click reg*/
 .welcome-page form h3,a {
-  color: black
+  color: whitesmoke
 }
 
 .welcome-page H3 {
@@ -63,18 +66,18 @@ a:hover {
 
 .banner {
   font-family: "open sans condensed", sans-serif;
-  background: url("/snowleopard.jpg");
+  /*background: url("/snowleopard.jpg");*/
   width: 70%;
   padding-top: 0px;
   padding-bottom: 0;
-  box-shadow: 10px 10px 5px #000000;
+  /*box-shadow: 10px 10px 5px #000000;*/
   margin: 0 auto;
   text-transform: uppercase;
 }
 
 .banner-head {
   color: whitesmoke;
-  background-color: rgba(0,0,0,.7);
+  /*background-color: rgba(0,0,0,.7);*/
   font-size: 45px;
   height: 100%;
   padding-left: 0;
@@ -112,20 +115,22 @@ a:hover {
 
 #title {
   font-family: "Amatic SC", cursive;
-  font-size: 150px;
+  font-size: 100px;
   color: crimson;
   font-weight: lighter;
   line-height: 50px;
   padding-top: 40px;
-  margin: 0 auto;
+  margin: 20px auto;
+  padding-bottom: 30px;
   text-shadow: 2px 2px #000000;
 }
 
 #sub {
   color: whitesmoke;
-  font-size: 60px;
+  font-size: 100px;
   padding-bottom: 0;
-  margin: 0;
+  margin-top: 20px;
+  padding-top: 20px;
   text-shadow: none;
 }
 
@@ -134,7 +139,7 @@ a:hover {
   text-align: center;
   padding-top: 80px;
   padding-bottom: 0;
-  background: rgba(0,0,0,.7)
+  /*background: rgba(0,0,0,.7)*/
 }
 
 .banner-nav a {
@@ -407,7 +412,7 @@ main h1 {
 .form-style label{
     display: block;
     margin: 0;
-    padding: 10px
+    padding: 3px
 }
 
 .form-style label > span {
@@ -421,7 +426,7 @@ main h1 {
 }
 
 .form-style input{
-    width: 60%;
+    width: 40%;
 }
 
 .form-style h3,a {
@@ -430,12 +435,34 @@ main h1 {
 
 .form-style input {
     box-sizing: border-box;
+    background-color: whitesmoke;
+    border: 2px solid whitesmoke;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    border: 1px solid #C2C2C2;
-    box-shadow: 1px 1px 4px black;
-    -moz-box-shadow: 1px 1px 4px black;
-    -webkit-box-shadow: 1px 1px 4px black;
+    box-shadow:   0 0 5px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff,
+    0 0 4px #0ff,
+    0 0 8px #0ff,
+    0 0 9px #0ff,
+    0 0 1px #0ff,
+    0 0 10px #0ff;
+    -moz-box-shadow: 0 0 5px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff,
+    0 0 4px #0ff,
+    0 0 8px #0ff,
+    0 0 9px #0ff,
+    0 0 1px #0ff,
+    0 0 10px #0ff;
+    -webkit-box-shadow: 0 0 5px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff,
+    0 0 4px #0ff,
+    0 0 8px #0ff,
+    0 0 9px #0ff,
+    0 0 1px #0ff,
+    0 0 10px #0ff;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -444,15 +471,40 @@ main h1 {
 }
 
 .form-style input:hover {
-    background: lightgrey;
+    box-shadow: 0 0 5px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff,
+    0 0 4px crimson,
+    0 0 8px crimson,
+    0 0 9px crimson,
+    0 0 1px crimson,
+    0 0 10px crimson;
+    -moz-box-shadow: 0 0 5px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff,
+    0 0 4px crimson,
+    0 0 8px crimson,
+    0 0 9px crimson,
+    0 0 1px crimson,
+    0 0 10px crimson;
+    -webkit-box-shadow: 0 0 5px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff,
+    0 0 4px crimson,
+    0 0 8px crimson,
+    0 0 9px crimson,
+    0 0 1px crimson,
+    0 0 10px crimson;
 }
 
 form .submit {
   font-family: "open sans condensed", sans-serif;
   text-align: center;
+  color: whitesmoke;
+  text-transform: uppercase;
   border: none;
   padding: 10px;
-  background: whitesmoke;
+  background: black;
   font-size: 18px;
   margin: 0 auto;
   font-weight: bold;
