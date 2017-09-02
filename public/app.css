@@ -65,7 +65,7 @@ a:hover {
 }
 
 .banner {
-  font-family: "open sans condensed", sans-serif;
+  font-family: "Amatic SC", cursive;
   /*background: url("/snowleopard.jpg");*/
   width: 70%;
   padding-top: 0px;
@@ -404,7 +404,7 @@ main h1 {
 
 .form-style {
   max-width: 500px;
-  margin: 20px auto;
+  margin: 0px auto;
   text-align: center;
 }
 
@@ -435,7 +435,9 @@ main h1 {
 
 .form-style input {
     box-sizing: border-box;
-    background-color: whitesmoke;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 30px;
     border: 2px solid whitesmoke;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -463,9 +465,9 @@ main h1 {
     0 0 9px #0ff,
     0 0 1px #0ff,
     0 0 10px #0ff;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
     padding: 7px;
     outline: none;
 }
@@ -498,7 +500,7 @@ main h1 {
 }
 
 form .submit {
-  font-family: "open sans condensed", sans-serif;
+  font-family: "Amatic SC", cursive;
   text-align: center;
   color: whitesmoke;
   text-transform: uppercase;
@@ -509,6 +511,10 @@ form .submit {
   margin: 0 auto;
   font-weight: bold;
   box-shadow: 1px 1px 4px black;
+}
+
+form .submit:hover {
+  color: gold;
 }
 
 .contact {
