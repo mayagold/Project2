@@ -1,5 +1,7 @@
 body {
-background-color: whitesmoke;
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   font-family: "open sans condensed", sans-serif;
   color: black;
 }
@@ -82,7 +84,30 @@ a:hover {
 }
 
 .banner-head a{
-  color: steelblue;
+  color: crimson;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #990000,
+    0 0 20px #fff,
+    0 0 40px #990000,
+    0 0 80px #990000,
+    0 0 90px #990000,
+    0 0 100px #0ff,
+    0 0 150px #990000;
+
+}
+
+.banner-head > #sub {
+
+  text-shadow:
+  0 0 5px #fff,
+0 0 10px #fff,
+0 0 20px #fff,
+0 0 40px #0ff,
+0 0 80px #0ff,
+0 0 90px #0ff,
+0 0 100px #0ff,
+0 0 150px #0ff;
 }
 
 #title {
