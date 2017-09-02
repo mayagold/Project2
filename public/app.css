@@ -430,7 +430,7 @@ main h1 {
 }
 
 .form-style h3,a {
-  color: black;
+  color: whitesmoke;
 }
 
 .form-style input {
@@ -523,4 +523,9 @@ form .submit:hover {
 
 .contact h5 {
   font-size: 30px
+}
+
+.prompt {
+  text-align: center;
+  margin: 0 auto;
 }
