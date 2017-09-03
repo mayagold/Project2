@@ -1,48 +1,108 @@
 body {
   background-color: #000000;
-  background-image: url("https://cdn.shutterstock.com/shutterstock/videos/12895073/thumb/1.jpg");
+  background-image: url("1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   font-family: "open sans condensed", sans-serif;
   color: black;
 }
 
+@keyframes fadein-neon {
+    from { opacity: 0; }
+    10% { opacity: 0; }
+    70% { opacity: 1; }
+    72% { opacity: .7; }
+    78% { opacity: 1; }
+    80% { opacity: .8; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadein-form {
+    from { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 .welcome-page {
   background-color: black;
-    background-image: url("https://cdn.shutterstock.com/shutterstock/videos/12895073/thumb/1.jpg");
+  background-image: url('1.jpg');
   background-size:cover;
   background-repeat: no-repeat;
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-.welcome-page-options {
-  text-align: center;
-  font-size: 40px;
-  text-transform: uppercase;
-  color: steelblue;
-  padding: 20px;
+.welcome-page > .banner {
+    animation: fadein-neon 4s;
 }
 
-.welcome-page-options a {
-  color: steelblue;
+.banner-nav a:hover {
+  color: crimson;
 }
 
 .welcome-page form {
-
-  color: whitesmoke
+  color: whitesmoke;
+  animation: fadein-form 8s;
 }
 
 .welcome-page form input {
-  background: white;
+  background: whitesmoke;
   color: crimson;
 }
-/*
-this should only appear when click reg*/
 
+.welcome-page .submit {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: whitesmoke;
+  text-shadow: 0 0 5px #0ff,
+  0 0 3px #0ff,
+  0 0 2px #0ff,
+  0 0 4px #0ff,
+  0 0 8px #0ff,
+  0 0 9px #0ff,
+  0 0 1px #0ff,
+  0 0 10px #0ff;
+  -moz-text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px #0ff,
+  0 0 8px #0ff,
+  0 0 9px #0ff,
+  0 0 1px #0ff,
+  0 0 10px #0ff;
+  -webkit-text-shadow: 0 0 5px #0ff,
+  0 0 3px #0ff,
+  0 0 2px #0ff,
+  0 0 4px #0ff,
+  0 0 8px #0ff,
+  0 0 9px #0ff,
+  0 0 1px #0ff,
+  0 0 10px #0ff;
+}
 
 .welcome-page .submit:hover {
-  color: crimson;
+  color: whitesmoke;
+  text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px crimson,
+  0 0 8px crimson,
+  0 0 9px crimson,
+  0 0 1px crimson,
+  0 0 10px crimson;
+  -moz-text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px crimson,
+  0 0 8px crimson,
+  0 0 9px crimson,
+  0 0 1px crimson,
+  0 0 10px crimson;
+  -webkit-text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px crimson,
+  0 0 8px crimson,
+  0 0 9px crimson,
+  0 0 1px crimson,
+  0 0 10px crimson;
 }
 
 .welcome-page H3 {
@@ -125,7 +185,7 @@ a:hover {
 }
 
 #title {
-  font-family: "Amatic SC", cursive;
+  font-family: "Open Sans Condensed", sans-serif;
   font-size: 100px;
   color: crimson;
   font-weight: lighter;
@@ -138,7 +198,7 @@ a:hover {
 
 #sub {
   color: whitesmoke;
-  font-size: 100px;
+  font-size: 80px;
   padding-bottom: 0;
   margin-top: 20px;
   padding-top: 20px;
@@ -179,10 +239,6 @@ a:hover {
   color: gold;
 }
 
-.banner-nav a:hover {
-    font-weight: bold;
-    color: gold;
-}
 
 a {
   text-decoration: none;
@@ -291,12 +347,9 @@ ul {
 }
 
 form {
-
   color: black;
   padding: 30px;
-  border: 1px solid black;
-  border-radius: 30px;
-  box-shadow: 10px 10px 5px #000000;
+
 }
 
 .no-style {
@@ -449,12 +502,12 @@ main h1 {
     background-color: black;
     color: whitesmoke;
     border-radius: 30px;
-    border: 2px solid whitesmoke;
+    border: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-shadow:   0 0 5px #fff,
-    0 0 3px #fff,
-    0 0 2px #fff,
+    box-shadow:   0 0 5px #0ff,
+    0 0 3px #0ff,
+    0 0 2px #0ff,
     0 0 4px #0ff,
     0 0 8px #0ff,
     0 0 9px #0ff,
@@ -468,9 +521,9 @@ main h1 {
     0 0 9px #0ff,
     0 0 1px #0ff,
     0 0 10px #0ff;
-    -webkit-box-shadow: 0 0 5px #fff,
-    0 0 3px #fff,
-    0 0 2px #fff,
+    -webkit-box-shadow: 0 0 5px #0ff,
+    0 0 3px #0ff,
+    0 0 2px #0ff,
     0 0 4px #0ff,
     0 0 8px #0ff,
     0 0 9px #0ff,
@@ -479,7 +532,7 @@ main h1 {
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
-    padding: 7px;
+    /*padding: 7px;*/
     outline: none;
 }
 
