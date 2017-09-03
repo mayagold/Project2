@@ -1,6 +1,8 @@
 body {
   background-color: #000000;
-  /*background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");*/
+  background-image: url("https://cdn.shutterstock.com/shutterstock/videos/12895073/thumb/1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   font-family: "open sans condensed", sans-serif;
   color: black;
@@ -8,7 +10,9 @@ body {
 
 .welcome-page {
   background-color: black;
-  /*background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");*/
+    background-image: url("https://cdn.shutterstock.com/shutterstock/videos/12895073/thumb/1.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
@@ -25,13 +29,20 @@ body {
 }
 
 .welcome-page form {
-  background: black;
+
   color: whitesmoke
+}
+
+.welcome-page form input {
+  background: white;
+  color: crimson;
 }
 /*
 this should only appear when click reg*/
-.welcome-page form h3,a {
-  color: whitesmoke
+
+
+.welcome-page .submit:hover {
+  color: crimson;
 }
 
 .welcome-page H3 {
@@ -143,7 +154,7 @@ a:hover {
 }
 
 .banner-nav a {
-  color: crimson;
+  color: whitesmoke;
   padding-right: 20px;
   padding-left: 20px;
   font-size: 30px
@@ -280,7 +291,7 @@ ul {
 }
 
 form {
-  background: whitesmoke;
+
   color: black;
   padding: 30px;
   border: 1px solid black;
