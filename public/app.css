@@ -30,12 +30,56 @@ body {
   background-repeat: no-repeat;
 }
 
+.welcome-page > .welcome-description {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 100px;
+  animation: fadein-form 8s;
+}
+
 .welcome-page > .banner {
     animation: fadein-neon 4s;
 }
 
-.banner-nav a:hover {
+.modal-login {
+  display: none;
+}
+
+.modal-register {
+  display: none;
+}
+
+.banner-nav a {
+  animation: fadein-form 8s;
   color: crimson;
+}
+
+.banner-nav a:hover {
+  color: whitesmoke;
+  text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px crimson,
+  0 0 8px crimson,
+  0 0 9px crimson,
+  0 0 1px crimson,
+  0 0 10px crimson;
+  -moz-text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px crimson,
+  0 0 8px crimson,
+  0 0 9px crimson,
+  0 0 1px crimson,
+  0 0 10px crimson;
+  -webkit-text-shadow: 0 0 5px #fff,
+  0 0 3px #fff,
+  0 0 2px #fff,
+  0 0 4px crimson,
+  0 0 8px crimson,
+  0 0 9px crimson,
+  0 0 1px crimson,
+  0 0 10px crimson;
 }
 
 .welcome-page form {
@@ -137,11 +181,9 @@ a:hover {
 
 .banner {
   font-family: "Amatic SC", cursive;
-  /*background: url("/snowleopard.jpg");*/
-  width: 70%;
-  padding-top: 0px;
+  width: 90%;
+  padding-top: 40px;
   padding-bottom: 0;
-  /*box-shadow: 10px 10px 5px #000000;*/
   margin: 0 auto;
   text-transform: uppercase;
 }
@@ -172,7 +214,6 @@ a:hover {
 }
 
 .banner-head > #sub {
-
   text-shadow:
   0 0 5px #fff,
 0 0 10px #fff,
@@ -185,7 +226,7 @@ a:hover {
 }
 
 #title {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Amatic SC", sans-serif;
   font-size: 100px;
   color: crimson;
   font-weight: lighter;
@@ -198,7 +239,7 @@ a:hover {
 
 #sub {
   color: whitesmoke;
-  font-size: 80px;
+  font-size: 120px;
   padding-bottom: 0;
   margin-top: 20px;
   padding-top: 20px;
@@ -471,6 +512,7 @@ main h1 {
   margin: 0px auto;
   text-align: center;
 }
+
 
 
 .form-style label{

@@ -8,18 +8,40 @@
     <title>Down Days</title>
   </head>
   <body class=welcome-page>
-    <br/><br/><br/><br/><br/>
+
+    <div class="welcome-description">
+      <a>A global community dedicated to winter sports. Join us in the white room.</a>
+    </div>
+
     <div class="banner">
       <h1 class="banner-head" id="title">
-        <a href="/posts">downdays</a><br/>
-        <span id="sub">we'd rather be skiing</span>
+        <span id="sub">I'd rather be skiing</span>
       </h1>
       <nav class="banner-nav">
         <a href="/sessions/login">Log in</a>
-        <a href="/sessions/register">Join the Community</a>
+        <a href="/sessions/register">join</a>
       </nav>
     </div>
-    <h3>the only online forum devoted exclusively to skiing and snowboarding.</h3>
-    <h3>join us in the white room.</h3>
+
+
+<!-- USER LOGIN DIV: DISPLAYS WHEN USER CLICKS LOG IN -->
+    <div class="modal-login">
+      <form class="form-style" action="/sessions/login" method="POST">
+         <label><input type="text" name="username" value="" placeholder="USERNAME"></label><br/>
+         <label>
+           <input type="password" name="PASSWORD" value="" placeholder="password"></label><br/>
+        <button class="submit">SEND</button>
+      </form>
+    </div>
+
+<!-- USER LOGIN DIV: DISPLAYS WHEN USER CLICKS REGISTER -->
+    <div class="modal-register">
+      <form class="form-style" action="/sessions/register" method="POST">
+        <label><input type="text" name="username" value="" placeholder="CREATE USERNAME"></label><br/>
+        <label><input type="password" name="password" value="" placeholder="CREATE PASSWORD"></label><br/>
+        <button class="submit">SEND</button>
+      </form>
+    </div>
+
   </body>
 </html>
