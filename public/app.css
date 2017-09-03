@@ -84,7 +84,7 @@ body {
 
 .welcome-page form {
   color: whitesmoke;
-  animation: fadein-form 8s;
+  animation: fadein-form 2s;
 }
 
 .welcome-page form input {
