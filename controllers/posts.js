@@ -38,12 +38,12 @@ router.get('/', (req,res)=>{
             res.render('posts/index.ejs', {
               posts: foundPosts,
               currentUser: req.session.username,
-              memberId: foundMember._id
+              // memberId: foundMember._id
             })
           })
         })
       } else {
-        res.redirect('/sessions/register')
+        res.redirect('/')
       }
 })
 
