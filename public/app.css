@@ -345,7 +345,8 @@ ul {
 }
 
 .index-posts {
-  border-bottom: 2px solid black;
+  padding-top: 40px;
+  padding-left: 60px;
   margin: 0 auto;
 }
 
@@ -355,10 +356,11 @@ ul {
 
 .post-head {
   text-align: left;
-  width: 90%;
+  width: 100%;
+  /*border-bottom: 2px solid grey;*/
   display: inline-block;
-  padding: 1%;
-  margin: 10px auto;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
   font-size: 20px;
 
 }
@@ -368,7 +370,7 @@ ul {
   max-width: 150px;
   border: 1px solid black;
   background: whitesmoke;
-  margin: 0 auto
+  margin: 10px auto;
 }
 
 .post-img-div {
@@ -376,7 +378,7 @@ ul {
   flex-wrap: wrap;
   flex-direction: row;
   float: left;
-  margin-top: 30px;
+  margin-top: 0px;
   width: 200px;
 }
 
@@ -396,11 +398,6 @@ ul {
 
 .post-title:hover {
   color: gold
-}
-
-
-.post h6 {
-  color: black
 }
 
 
