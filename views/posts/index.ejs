@@ -15,19 +15,21 @@
         <% include ../partials/header.ejs %>
     </header>
     <main>
-      <h2 class="post-index-head">THE WHITE ROOM</h2>
       <div class="index-posts">
         <ul>
             <% for (i=0; i<posts.length; i++) { %>
                 <li class="post">
                   <div class="post-head">
-                    <img src="<%=posts[i].img%>" alt=""/>
+                    <div class="post-img-div">
+                      <img src="<%=posts[i].img%>" alt=""/>
+                    </div>
                     <div class="post-head-text">
                       <a href="/posts/show/<%=posts[i]._id%>"><h3 class="post-title"><%=posts[i].title%></h3> </a>
-                      <h6>by <strong>
-                        <%=posts[i].memberId%>
-                      </strong> </h6>
-                      <h6>Likes: <%=posts[i].likes%></h6>
+                      <p><%=posts[i].body%><br/>
+                      <strong>
+                      <%=posts[i].memberId%>
+                      </strong><br/>
+                      Like (<%=posts[i].likes%>)</p>
                     </div>
                 </div>
 

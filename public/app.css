@@ -263,7 +263,7 @@ a:hover {
 }
 
 #title {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Amatic SC", cursive;
   font-size: 100px;
   color: crimson;
   font-weight: lighter;
@@ -293,7 +293,6 @@ a:hover {
   /*margin-top: -20px;*/
   padding-top: 10px;
   padding-bottom: 10px;
-  /*background: rgba(0,0,0,.7)*/
 }
 
 .banner-nav a {
@@ -345,18 +344,6 @@ ul {
     padding-left: 0
 }
 
-.post-index-head {
-  font-size: 40px;
-  font-family: "Open Sans Condensed", sans-serif;
-  color: whitesmoke;
-  background: black;
-  text-transform: uppercase;
-  /*margin: 40px auto 0 auto;*/
-  text-align: center;
-  padding-top: 0px;
-  padding-left: 30px;
-}
-
 .index-posts {
   border-bottom: 2px solid black;
   margin: 0 auto;
@@ -373,19 +360,24 @@ ul {
   padding: 1%;
   margin: 10px auto;
   font-size: 20px;
-  
+
 }
 
 .post-head img {
   max-height: 150px;
+  max-width: 150px;
   border: 1px solid black;
   background: whitesmoke;
+  margin: 0 auto
+}
+
+.post-img-div {
   display: inline-flex;
   flex-wrap: wrap;
   flex-direction: row;
   float: left;
-  margin-top: 30px
-
+  margin-top: 30px;
+  width: 200px;
 }
 
 .post-head-text {
@@ -396,7 +388,7 @@ ul {
 }
 
 .post-title {
-  font-size: 36px;
+  font-size: 24px;
   padding: 0;
   margin-bottom: 0;
   color: crimson
@@ -414,7 +406,8 @@ ul {
 
 .post p {
   color: black;
-  margin-top: 0
+  margin-top: 0;
+  font-size: 16px
 }
 
 .post a {
