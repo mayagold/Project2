@@ -1,10 +1,12 @@
 body {
-  background-color: #000000;
-  background-image: url("1.jpg");
+  background-color: whitesmoke;
+  /*background-image: url("1.jpg");*/
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "open sans condensed", sans-serif;
   color: black;
+  margin: 0 auto;
+  padding: 0;
 }
 
 @keyframes fadein-neon {
@@ -22,6 +24,8 @@ body {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
+
+/*Landing Page CSS*/
 
 .welcome-page {
   background-color: black;
@@ -41,6 +45,32 @@ body {
     animation: fadein-neon 4s;
 }
 
+.welcome-page .banner-head a{
+  color: crimson;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #990000,
+    0 0 20px #fff,
+    0 0 40px #990000,
+    0 0 80px #990000,
+    0 0 90px #990000,
+    0 0 100px #0ff,
+    0 0 150px #990000;
+
+}
+
+.welcome-page .banner-head > #sub {
+  text-shadow:
+  0 0 5px #fff,
+0 0 10px #fff,
+0 0 20px #fff,
+0 0 40px crimson,
+0 0 80px crimson,
+0 0 90px crimson,
+0 0 100px crimson,
+0 0 150px crimson;
+}
+
 .modal-login {
   display: none;
 }
@@ -49,12 +79,19 @@ body {
   display: none;
 }
 
-.banner-nav a {
-  animation: fadein-form 8s;
-  color: crimson;
+.welcome-page .banner-nav {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 
-.banner-nav a:hover {
+.welcome-page .banner-nav a {
+  animation: fadein-form 8s;
+  color: crimson;
+
+}
+
+.welcome-page .banner-nav a:hover {
   color: whitesmoke;
   text-shadow: 0 0 5px #fff,
   0 0 3px #fff,
@@ -80,6 +117,15 @@ body {
   0 0 9px crimson,
   0 0 1px crimson,
   0 0 10px crimson;
+}
+
+.welcome-page #sub {
+  color: whitesmoke;
+  font-size: 120px;
+  padding-bottom: 0;
+  margin-top: 20px;
+  padding-top: 20px;
+  text-shadow: none;
 }
 
 .welcome-page form {
@@ -157,6 +203,8 @@ body {
   color: black
 }
 
+
+
 header {
   margin: 0 auto;
 }
@@ -182,83 +230,90 @@ a:hover {
 .banner {
   font-family: "Amatic SC", cursive;
   width: 90%;
-  padding-top: 40px;
+  /*padding-top: 40px;*/
   padding-bottom: 0;
   margin: 0 auto;
   text-transform: uppercase;
 }
 
 .banner-head {
-  color: whitesmoke;
-  /*background-color: rgba(0,0,0,.7);*/
+  color: black;
   font-size: 45px;
   height: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
+  padding: 0px;
   text-align: center;
 }
 
 .banner-head a{
-  color: crimson;
+  color: whitesmoke;
   text-shadow:
     0 0 5px #fff,
-    0 0 10px #990000,
+    0 0 10px #000000,
     0 0 20px #fff,
-    0 0 40px #990000,
-    0 0 80px #990000,
-    0 0 90px #990000,
-    0 0 100px #0ff,
-    0 0 150px #990000;
+    0 0 40px #000000,
+    0 0 80px #000000,
+    0 0 90px #000000,
+    0 0 100px #000000,
+    0 0 150px #000000;
 
 }
 
 .banner-head > #sub {
-  text-shadow:
-  0 0 5px #fff,
-0 0 10px #fff,
-0 0 20px #fff,
-0 0 40px #0ff,
-0 0 80px #0ff,
-0 0 90px #0ff,
-0 0 100px #0ff,
-0 0 150px #0ff;
+
 }
 
 #title {
-  font-family: "Amatic SC", sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   font-size: 100px;
   color: crimson;
   font-weight: lighter;
   line-height: 50px;
-  padding-top: 40px;
-  margin: 20px auto;
+  padding-top: 50px;
+  margin: 40px auto;
   padding-bottom: 30px;
   text-shadow: 2px 2px #000000;
 }
 
 #sub {
-  color: whitesmoke;
-  font-size: 120px;
+  color: black;
+  font-size: 40px;
   padding-bottom: 0;
   margin-top: 20px;
   padding-top: 20px;
   text-shadow: none;
 }
 
-.banner-nav {
+.logged-in .banner-nav {
   width: 100%;
+  display: none;
   text-align: center;
-  padding-top: 80px;
-  padding-bottom: 0;
+  background: black;
+  color: whitesmoke;
+  position: fixed;
+  margin-top: -20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
   /*background: rgba(0,0,0,.7)*/
 }
 
 .banner-nav a {
   color: whitesmoke;
-  padding-right: 20px;
-  padding-left: 20px;
-  font-size: 30px
+  padding-right: 30px;
+  padding-left: 30px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.banner-nav a:hover {
+  text-shadow:
+    0 0 5px whitesmoke,
+    0 0 10px whitesmoke,
+    0 0 20px whitesmoke,
+    0 0 40px whitesmoke,
+    0 0 80px whitesmoke,
+    0 0 90px whitesmoke,
+    0 0 100px whitesmoke,
+    0 0 150px whitesmoke;
 }
 
 .user-info {
@@ -499,8 +554,7 @@ main p {
 main {
   text-align: center;
   border-radius: 2px;
-  padding: 30px;
-  margin: 40px auto;
+    margin: 40px auto;
 }
 
 main h1 {
