@@ -268,9 +268,9 @@ a:hover {
   color: crimson;
   font-weight: lighter;
   /*line-height: 50px;*/
-  padding-top: 60px;
+  padding-top: 70px;
   margin: 0px auto;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   text-shadow: 2px 2px #000000;
 }
 
@@ -346,36 +346,53 @@ ul {
 }
 
 .post-index-head {
-  font-size: 80px;
-  font-family: "Amatic SC", cursive;
-  color: black;
+  font-size: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+  color: whitesmoke;
+  background: black;
   text-transform: uppercase;
-  margin: 20px auto 0 auto;
+  /*margin: 40px auto 0 auto;*/
   text-align: center;
+  padding-top: 0px;
+  padding-left: 30px;
 }
 
 .index-posts {
-  width: 100%;
+  border-bottom: 2px solid black;
   margin: 0 auto;
 }
 
 .post {
-  text-align: center;
-  width: 50%;
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 1%;
-  margin: 10px auto;
-  font-size: 20px;
   display: block;
 }
 
+.post-head {
+  text-align: left;
+  width: 90%;
+  display: inline-block;
+  padding: 1%;
+  margin: 10px auto;
+  font-size: 20px;
+  
+}
+
 .post-head img {
-  max-height: 200px;
-  box-shadow: 10px 10px 5px #000000;
+  max-height: 150px;
   border: 1px solid black;
   background: whitesmoke;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  float: left;
+  margin-top: 30px
+
+}
+
+.post-head-text {
+  max-width: 70%;
+  float: left;
+  padding-left: 40px;
+
 }
 
 .post-title {
@@ -554,7 +571,7 @@ main p {
 main {
   text-align: center;
   border-radius: 2px;
-    margin: 40px auto;
+  margin: 0px auto;
 }
 
 main h1 {
