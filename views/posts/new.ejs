@@ -14,11 +14,10 @@
       <h3>Show us what you got.</h3>
       <div class="form-style">
         <form class="form-style" action="/posts" method="POST">
-          <input type="hidden" name="memberId" value="<%= currentUser %>">
-          <br/>
-          <label><span>Title:</span> <input type="text" name="title" value=""/></label><br/>
-          <label><span>Content:</span> <input type="textarea" name="body" value=""/></label><br/>
-          <label><span>Image/Video Link:</span> <input type="text" name="img" value=""/></label><br/>
+          <input type="hidden" name="memberId" value="<%= currentUser %>" >
+          <label><input type="text" name="title" placeholder="TITLE"/></label><br/>
+          <label><input type="textarea" name="body" placeholder="CONTENT"/></label><br/>
+          <label> <input type="text" name="img" placeholder="IMAGE LINK"value=""/></label><br/>
           <input class="submit" type="submit" value="Send It">
         </form>
       </div>
