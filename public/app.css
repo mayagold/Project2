@@ -105,7 +105,6 @@ body {
 }
 
 .welcome-page .banner-nav a {
-  animation: fadein-form 8s;
   color: whitesmoke;
   padding-top: 20px;
   font-size: 30px;
